@@ -7,8 +7,8 @@ package CreateMaze;
 
 /**
  *
- * @author Tadhg
+ * @author 14138409
  */
-public class DoorWall {
+public class RoomBuilder {
     
 }
