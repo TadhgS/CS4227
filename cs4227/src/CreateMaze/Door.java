@@ -9,6 +9,6 @@ package CreateMaze;
  *
  * @author Tadhg
  */
-public class DoorWall {
+public abstract class Door implements Part{
     
 }

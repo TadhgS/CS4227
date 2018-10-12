@@ -5,10 +5,15 @@
  */
 package CreateMaze;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
- * @author Tadhg
+ * @author 14138409
  */
-public class WallInterface {
-    
+public abstract class Wall implements Part
+{
+    @Override
+    public abstract double damage();
 }
