@@ -5,7 +5,7 @@ package Maze;
  *
  * @author Tadhg
  */
-public class Cs4227 
+public class Main 
 {
     public static void main(String[] args) 
     {
