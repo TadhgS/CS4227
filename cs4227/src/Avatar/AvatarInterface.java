@@ -9,6 +9,8 @@ package Avatar;
  *
  * @author Tadhg
  */
-public class User {
+interface AvatarInterface {
     
+    public int getHP();
+    public int getAtk();
 }

@@ -7,8 +7,13 @@ package Avatar;
 
 /**
  *
- * @author Tadhg
+ * @author Sean
  */
-public class UserInterface {
+public abstract class AvatarDecorator implements AvatarInterface{
+
+    Avatar avatar;
     
+    public AvatarDecorator(Avatar avatar){
+        this.avatar = avatar;
+   }
 }
