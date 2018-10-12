@@ -27,7 +27,6 @@ public class WallBuilder
         fullWall.addPart(new SolidWall());
         fullWall.addPart(new UnlockedDoor());
         return fullWall;
-        
     }
     
     public FullWall createDestructableWall()
