@@ -60,14 +60,28 @@ public class CreateGui extends JFrame implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e) 
     {
-      Button pressed = new Button(e);
         switch(e.getActionCommand())
         {
             case "Up":
-                pressed == "up";
-                
+                Button.pressed = "up";
+
             case "Down":
-                //Button pressed = new Button("down");
+                Button.pressed = "down";
+                
+            case "Left":
+            Button.pressed = "left";
+            
+            case "Right":
+                Button.pressed = "right";
+                
+            case "Attack":
+                Button.pressed = "attack";
+                
+            case "Run":
+                Button.pressed = "run";
+                
+            case "Start":
+                Button.pressed = "start";
         }
     }
     
