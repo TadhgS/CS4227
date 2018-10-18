@@ -25,5 +25,10 @@ public class LowHPHighAtk extends AvatarDecorator{
     public int getAtk() {
         return avatar.getAtk() + 1;
     }
+
+    @Override
+    public int setCurrentHP(int currentHp) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
