@@ -19,25 +19,30 @@ public class CreateGui extends JFrame implements ActionListener
         setLayout(null);
         setSize(800,400);
         setResizable(false);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         JTextField userText = new JTextField();
-        userText.setBounds(1, 1, 100, 25);
+        userText.setBounds(1, 1, 150, 25);
         userText.setEditable(false);
+        userText.setText("Username: " + login.userName);
         add(userText);
         
         JTextField scoreText = new JTextField();
-        scoreText.setBounds(110, 1, 100, 25);
+        scoreText.setBounds(210, 1, 100, 25);
+        scoreText.setText("Score: ");
         scoreText.setEditable(false);
         add(scoreText);
         
         JTextField healthText = new JTextField();
-        healthText.setBounds(220, 1, 100, 25);
+        healthText.setBounds(320, 1, 100, 25);
+        healthText.setText("Health: " /*+ Avatar.Avatar.getHP()*/);
         healthText.setEditable(false);
         add(healthText);
         
         JTextField timerText = new JTextField();
-        timerText.setBounds(330, 1, 100, 25);
+        timerText.setBounds(430, 1, 100, 25);
+        timerText.setText("Timer: ");
         timerText.setEditable(false);
         add(timerText);
         
