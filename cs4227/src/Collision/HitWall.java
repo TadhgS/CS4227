@@ -1,4 +1,4 @@
-package Collision;
+/*package Collision;
 
 import Avatar.AvatarInterface;
 import CreateMaze.CreateRoom;
@@ -36,4 +36,4 @@ public class HitWall
         }
         return health;
     }
-}
+}*/

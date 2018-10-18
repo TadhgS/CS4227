@@ -12,10 +12,16 @@ public class Main
     public static void main(String[] args) 
     {
         Avatar a = new Avatar();
-        showGui();
+        login();
     }
     
-    private static void showGui() 
+    private static void login() 
+    {
+        Gui.login l = new Gui.login();
+        l.setVisible(true);
+    }
+    
+    public static void showMazeGui() 
     {
         CreateGui l = new CreateGui();
         l.setVisible(true);
