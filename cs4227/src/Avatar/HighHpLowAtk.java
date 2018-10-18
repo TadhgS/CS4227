@@ -26,7 +26,13 @@ public class HighHpLowAtk extends AvatarDecorator{
     }
 
     @Override
-    public int setCurrentHP(int currentHp) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void setCurrentHP(int currentHp) {
+        avatar.currentHp = currentHp;
+    }
+
+    @Override
+    public void setCurrentAtk(int currentAtk) {
+        avatar.atk = currentAtk;
+
     }
 }

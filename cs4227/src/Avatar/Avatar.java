@@ -34,10 +34,15 @@ public class Avatar implements AvatarInterface
     }
     
     @Override
-    public int setCurrentHP(int hp)
+    public void setCurrentHP(int hp)
     {
         this.currentHp = hp;
-        return 0;
+    }
+
+    @Override
+    public void setCurrentAtk(int currentAtk) {
+        this.atk = currentAtk;
+
     }
 
    

@@ -14,5 +14,8 @@ public interface AvatarInterface
 
     public int getHP();
     public int getAtk();
-    public int setCurrentHP(int currentHp);
+
+    public void setCurrentHP(int currentHp);
+    public void setCurrentAtk(int currentAtk);
+
 }
