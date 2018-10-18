@@ -42,6 +42,7 @@ public class Avatar implements AvatarInterface
     @Override
     public void setCurrentAtk(int currentAtk) {
         this.atk = currentAtk;
+
     }
 
    
