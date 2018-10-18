@@ -9,8 +9,13 @@ package Avatar;
  *
  * @author Tadhg
  */
-interface AvatarInterface {
-    
+public interface AvatarInterface 
+{
+
     public int getHP();
     public int getAtk();
+
+    public void setCurrentHP(int currentHp);
+    public void setCurrentAtk(int currentAtk);
+
 }
