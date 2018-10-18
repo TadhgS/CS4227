@@ -9,24 +9,39 @@ package Avatar;
  *
  * @author Sean
  */
-public class Avatar implements AvatarInterface{
+public class Avatar implements AvatarInterface
+{
     
-     protected int hp;
-     protected int atk;
+     public static int maxHp, currentHp;
+     public int atk;
      
-    public Avatar(int hp, int atk){
-        this.hp = 40;
+    public Avatar()
+    {
+        this.maxHp = 40;
         this.atk = 2;
     }
 
     @Override
-    public int getHP() {
-        return this.hp;
+    public int getHP() 
+    {
+        return currentHp;
     }
 
     @Override
-    public int getAtk() {
+    public int getAtk() 
+    {
         return this.atk;
+    }
+    
+    @Override
+    public void setCurrentHP(int hp)
+    {
+        this.currentHp = hp;
+    }
+
+    @Override
+    public void setCurrentAtk(int currentAtk) {
+        this.atk = currentAtk;
     }
 
    

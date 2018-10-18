@@ -25,5 +25,14 @@ public class LowHPHighAtk extends AvatarDecorator{
     public int getAtk() {
         return avatar.getAtk() + 1;
     }
-    
+
+    @Override
+    public void setCurrentHP(int currentHp) {
+        avatar.currentHp = currentHp;
+    }
+
+    @Override
+    public void setCurrentAtk(int currentAtk) {
+        avatar.atk = currentAtk;
+    }
 }
