@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author 14138409
  */
-public class FullWall 
+public class Assembler 
 {
     private List<Part> parts = new ArrayList<Part>();
         

@@ -27,5 +27,10 @@ public class DestructableWall extends Wall
     public double damage() {
         return 0.1;
     }
+
+    @Override
+    public int position() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

@@ -12,7 +12,7 @@ package CreateMaze;
 
 import java.util.ArrayList;
 
-public class CreateRoom extends AbstractRoom{
+public class CreateRoom implements AbstractRoom{
     
         boolean door = false;
         ArrayList tiles = new ArrayList();
@@ -20,12 +20,11 @@ public class CreateRoom extends AbstractRoom{
         int[] wallsArr;
         int[] tilesArr;
         
-        @Override
-        public Room CreateRoom(){
-            for(int i = 0; i < 8; i++){
+        public Room CreateRoom(int size){
+            for(int i = 0; i < size*4; i++){
                 wallsArr[i] = (int) (Math.random() * 4) ;
             }
-            for(int j = 0; j < 8; j++){
+            for(int j = 0; j < size*4; j++){
                 if(wallsArr[j] == 1){
                     walls.add(createSpikedWall());
                 }
@@ -37,23 +36,44 @@ public class CreateRoom extends AbstractRoom{
                 }  
                 else if(wallsArr[j] == 4 && door == true){
                     wallsArr[j] = (int) (Math.random() * 3) ;
-                        if(wallsArr[j] == 1){
+                    switch (wallsArr[j]) {
+                        case 1:
                             walls.add(createSpikedWall());
-                        }
-                        else if(wallsArr[j] == 2){
+                            break;
+                        case 2:
                             walls.add(createDestructableWall());
-                        }  
-                        else{
+                            break;
+                        default:
                             walls.add(createSolidWall());
-                        }  
+                            break;  
+                    }
                 }
                 else
                     walls.add(createDoorWall());
             }
             //For extensiblity tiles can copy walls to create new types of tiles (mob tiles, pitfalls, etc.)
             
-            for(int t = 0; t < 4; t++){
-                tiles.add(createTile());
+            /*for(int i = 0; i < size*size; i++){              For later randomising
+                tilesArr[i] = (int) (Math.random() * 4) ;
+             }*/
+            
+            for(int t = 0; t < size*size ; t++){
+                
+                switch (tilesArr[t]) {
+                    case 1:
+                        tiles.add(createPlainTile());
+                        break;
+                    case 2:
+                        tiles.add(createMobTile());
+                        break;
+                    case 3:
+                        tiles.add(createHealTile());
+                        break;
+                    default:
+                        tiles.add(createCoinTile());
+                        break;
+                }
+               
             }
             
             
@@ -77,6 +97,27 @@ public class CreateRoom extends AbstractRoom{
     }
 
     private Object createTile() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private Object createPlainTile() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private Object createMobTile() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private Object createHealTile() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private Object createCoinTile() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    CreateRoom() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
