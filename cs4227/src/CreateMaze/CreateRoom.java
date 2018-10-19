@@ -12,7 +12,7 @@ package CreateMaze;
 
 import java.util.ArrayList;
 
-public class CreateRoom implements AbstractRoom{
+public class CreateRoom{
     
         boolean door = false;
         ArrayList tiles = new ArrayList();
@@ -20,7 +20,7 @@ public class CreateRoom implements AbstractRoom{
         int[] wallsArr;
         int[] tilesArr;
         
-        public Room CreateRoom(int size){
+        public ArrayList CreateWalls(int size){
             for(int i = 0; i < size*4; i++){
                 wallsArr[i] = (int) (Math.random() * 4) ;
             }
@@ -51,18 +51,20 @@ public class CreateRoom implements AbstractRoom{
                 else
                     walls.add(createDoorWall());
             }
-            //For extensiblity tiles can copy walls to create new types of tiles (mob tiles, pitfalls, etc.)
+            return walls;
+        }
             
-            /*for(int i = 0; i < size*size; i++){              For later randomising
+        public ArrayList CreateTiles(int size){
+            for(int i = 0; i < size*size; i++){
                 tilesArr[i] = (int) (Math.random() * 4) ;
-             }*/
+            }
             
             for(int t = 0; t < size*size ; t++){
                 
                 switch (tilesArr[t]) {
                     case 1:
-                        tiles.add(createPlainTile());
-                        break;
+                         tiles.add(createPlainTile());
+                         break;
                     case 2:
                         tiles.add(createMobTile());
                         break;
@@ -72,12 +74,9 @@ public class CreateRoom implements AbstractRoom{
                     default:
                         tiles.add(createCoinTile());
                         break;
-                }
-               
+                }          
             }
-            
-            
-            return null;
+        return tiles;
         }
 
     private Object createSpikedWall() {
@@ -113,11 +112,6 @@ public class CreateRoom implements AbstractRoom{
     }
 
     private Object createCoinTile() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    CreateRoom() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
