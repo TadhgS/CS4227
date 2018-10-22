@@ -5,9 +5,6 @@
  */
 package CreateMaze;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author 14138409
@@ -68,7 +65,7 @@ public class RoomPartBuilder
     public Assembler createCoinTile()
     {
         Assembler part = new Assembler();
-        part.addPart(new SolidWall());
+        part.addPart(new CoinTile());
         return part;
         
     }

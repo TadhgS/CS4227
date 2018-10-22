@@ -9,26 +9,31 @@ package CreateMaze;
  *
  * @author Sean
  */
-public class PlainTile extends Tile{
+public class PlainTile extends Tile
+{
 
 
     @Override
-    public String name() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String name() 
+    {
+        return " Plain Tile";
     }
 
     @Override
-    public Boolean destructable() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Boolean destructable() 
+    {
+        return false;
     }
 
     @Override
-    public double damage() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public double damage() 
+    {
+        return 0.0;
     }
 
     @Override
-    public int position() {
+    public int position() 
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

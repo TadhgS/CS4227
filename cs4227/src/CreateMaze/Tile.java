@@ -11,7 +11,6 @@ package CreateMaze;
  */
 public abstract class Tile implements Part 
 {
-    @Override
-    public abstract int position();
+
 }
 

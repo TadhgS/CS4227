@@ -9,6 +9,7 @@ package CreateMaze;
  *
  * @author 14138409
  */
-public class RoomBuilder {
+public class RoomBuilder 
+{
     
 }

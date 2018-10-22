@@ -9,6 +9,7 @@ package CreateMaze;
  *
  * @author Tadhg
  */
-public class CoinInterface {
+public class CoinInterface 
+{
     
 }

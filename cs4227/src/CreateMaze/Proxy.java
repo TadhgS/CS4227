@@ -9,6 +9,7 @@ package CreateMaze;
  *
  * @author Tadhg
  */
-public class Proxy {
+public class Proxy 
+{
     
 }

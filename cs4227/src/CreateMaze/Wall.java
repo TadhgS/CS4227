@@ -5,9 +5,6 @@
  */
 package CreateMaze;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author 14138409
