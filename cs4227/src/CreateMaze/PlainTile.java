@@ -7,27 +7,28 @@ package CreateMaze;
 
 /**
  *
- * @author 14138409
+ * @author Sean
  */
-public class SpikedWall extends Wall{
+public class PlainTile extends Tile
+{
+
 
     @Override
-    public String name()
+    public String name() 
     {
-        return "Spiked Wall";
+        return " Plain Tile";
     }
 
     @Override
-    public Boolean destructable()
+    public Boolean destructable() 
     {
         return false;
     }
-    
+
     @Override
     public double damage() 
     {
-        return 7.5;
+        return 0.0;
     }
-
     
 }

@@ -9,6 +9,7 @@ package CreateMaze;
  *
  * @author danie
  */
-public class Room { //needs implimentation
+public class Room 
+{ //needs implimentation
     
 }
