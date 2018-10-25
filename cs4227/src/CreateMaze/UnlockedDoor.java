@@ -28,10 +28,5 @@ public class UnlockedDoor  extends Door{
     {
         return 0.0;
     }
-
-    @Override
-    public int position() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }

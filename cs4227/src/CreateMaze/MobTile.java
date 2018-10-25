@@ -29,11 +29,5 @@ public class MobTile extends Tile
     {
         return 0.5;
     }
-
-    @Override
-    public int position() 
-    {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }

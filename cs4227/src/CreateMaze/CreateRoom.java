@@ -12,13 +12,14 @@ package CreateMaze;
 
 import java.util.ArrayList;
 
-public class CreateRoom{
-    
+public class CreateRoom
+{
         boolean door = false;
         ArrayList tiles = new ArrayList();
         ArrayList walls = new ArrayList();
         int[] wallsArr;
         int[] tilesArr;
+        RoomPartBuilder builder = new RoomPartBuilder();
         
         public ArrayList CreateWalls(int size){
             for(int i = 0; i < size*4; i++){
@@ -26,30 +27,30 @@ public class CreateRoom{
             }
             for(int j = 0; j < size*4; j++){
                 if(wallsArr[j] == 1){
-                    walls.add(createSpikedWall());
+                    walls.add(builder.createSpikedWall());
                 }
                 else if(wallsArr[j] == 2){
-                    walls.add(createDestructableWall());
+                    walls.add(builder.createDestructableWall());
                 }  
                 else if(wallsArr[j] == 3){
-                    walls.add(createSolidWall());
+                    walls.add(builder.createSolidWall());
                 }  
                 else if(wallsArr[j] == 4 && door == true){
                     wallsArr[j] = (int) (Math.random() * 3) ;
                     switch (wallsArr[j]) {
                         case 1:
-                            walls.add(createSpikedWall());
+                            walls.add(builder.createSpikedWall());
                             break;
                         case 2:
-                            walls.add(createDestructableWall());
+                            walls.add(builder.createDestructableWall());
                             break;
                         default:
-                            walls.add(createSolidWall());
+                            walls.add(builder.createSolidWall());
                             break;  
                     }
                 }
                 else
-                    walls.add(createDoorWall());
+                    walls.add(builder.createDoorWall());
             }
             return walls;
         }
@@ -63,55 +64,19 @@ public class CreateRoom{
                 
                 switch (tilesArr[t]) {
                     case 1:
-                         tiles.add(createPlainTile());
+                         tiles.add(builder.createPlainTile());
                          break;
                     case 2:
-                        tiles.add(createMobTile());
+                        tiles.add(builder.createMobTile());
                         break;
                     case 3:
-                        tiles.add(createHealTile());
+                        tiles.add(builder.createHealTile());
                         break;
                     default:
-                        tiles.add(createCoinTile());
+                        tiles.add(builder.createCoinTile());
                         break;
                 }          
             }
         return tiles;
         }
-
-    private Object createSpikedWall() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private Object createDestructableWall() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private Object createSolidWall() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private Object createDoorWall() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private Object createTile() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private Object createPlainTile() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private Object createMobTile() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private Object createHealTile() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private Object createCoinTile() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
