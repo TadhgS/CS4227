@@ -28,4 +28,5 @@ public class SolidWall extends Wall
     {
         return 0.0;
     }    
+
 }

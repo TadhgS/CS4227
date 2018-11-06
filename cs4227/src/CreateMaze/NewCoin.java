@@ -1,14 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package CreateMaze;
-
+import Controller.UpdateUserScore;
 /**
  *
  * @author Tadhg
  */
-public class NewCoin {
+public class NewCoin implements CoinInterface
+{
+    @Override
+   public void updateScore()
+   {
+       UpdateUserScore updateUserScore = new UpdateUserScore();
+       updateUserScore.updateUserScore();
+   }
     
 }

@@ -9,6 +9,7 @@ package CreateMaze;
  *
  * @author Tadhg
  */
-public class Observer {
+public class Observer 
+{
     
 }

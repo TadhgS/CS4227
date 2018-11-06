@@ -3,14 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package CreateMaze;
 
 /**
  *
- * @author 14138409
+ * @author Tadhg
  */
-public abstract class Wall implements Part
-{
-    @Override
-    public abstract double damage();
+public class CareTaker {
+    
 }

@@ -7,8 +7,10 @@ package CreateMaze;
 
 /**
  *
- * @author Tadhg
+ * @author Sean
  */
-public class Proxy {
-    
+public abstract class Tile implements Part 
+{
+
 }
+
