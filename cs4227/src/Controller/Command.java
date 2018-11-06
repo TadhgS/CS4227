@@ -4,7 +4,7 @@ package Controller;
  *
  * @author Daniel
  */
-public interface CommandInterface 
+public interface Command 
 {
     public void execute();
 }
