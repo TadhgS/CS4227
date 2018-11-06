@@ -7,8 +7,8 @@ package Interceptor;
 
 /**
  *
- * @author Tadhg
+ * @author Dsims
  */
-public interface Interceptor {
-    
+public class Dispatcher implements Interceptor{
+
 }
