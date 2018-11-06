@@ -6,7 +6,7 @@ import java.util.ArrayList;
  *
  * @author Daniel
  */
-class Authentication 
+public class Authentication 
 {
     public static boolean authenticate(String username)
     {

@@ -9,7 +9,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-class File 
+public class File 
 {
     public ArrayList<String> getFile()
     {
