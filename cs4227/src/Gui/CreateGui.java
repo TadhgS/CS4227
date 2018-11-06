@@ -2,6 +2,7 @@ package Gui;
 
 import javax.swing.*;
 import java.awt.event.*;
+import Controller.Command;
 import Controller.Button;
 
 /**
@@ -89,47 +90,12 @@ public class CreateGui extends JFrame implements ActionListener
         
     }
 
+    Command command;
+    
     @Override
-    public void actionPerformed(ActionEvent e) 
+    public void actionPerformed(ActionEvent e)
     {
-        String pressed;
-        switch(e.getActionCommand())
-        {
-            case "Up":
-                pressed = "up";
-                Button up = new Button(pressed);
-                break;
-
-            case "Down":
-                pressed = "down";
-                Button down = new Button(pressed);
-                break;
-                
-            case "Left":
-                pressed = "left";
-                Button left = new Button(pressed);
-                break;
-            
-            case "Right":
-                pressed = "right";
-                Button right = new Button(pressed);
-                break;
-                
-            case "Attack":
-                pressed = "attack";
-                Button attack = new Button(pressed);
-                break;
-                
-            case "Run":
-                pressed = "run";
-                Button run = new Button(pressed);
-                break;
-                
-            case "Start":
-                pressed = "start";
-                Button start = new Button(pressed);
-                break;
-        }
+       Button.buttonRemote(e.getActionCommand());
     }
     
 }

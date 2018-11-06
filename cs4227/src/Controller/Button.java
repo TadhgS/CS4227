@@ -1,84 +1,62 @@
 package Controller;
 
-import Gui.CreateGui;
-import java.io.IOException;
-import java.util.*;
-
 /**
  *
- * @author Daniel
+ * @author danie
  */
-public class Button 
+public class Button  
 {
-
-    public Button(String pressed)
+    public static void buttonRemote(String pressed)
     {
+        Remote remote = new Remote();
+        Movement movementPrimary = new Movement("Primary");
+        Actions actionPrimary = new Actions("Primary");
+        
+        MovementUpCommand primaryUp = new MovementUpCommand(movementPrimary);
+        MovementDownCommand primaryDown = new MovementDownCommand(movementPrimary);
+        MovementLeftCommand primaryLeft = new MovementLeftCommand(movementPrimary);
+        MovementRightCommand primaryRight = new MovementRightCommand(movementPrimary);
+        
+        ActionStartCommand primaryStart = new ActionStartCommand(actionPrimary);
+        ActionAttackCommand primaryAttack = new ActionAttackCommand(actionPrimary);
+        ActionRunCommand primaryRun = new ActionRunCommand(actionPrimary);
+        
         switch(pressed)
         {
-            case "up":
-                up();
+            case "Up":
+                remote.setCommand(primaryUp);
+                remote.buttonPressed();
                 break;
                 
-            case "down":
-                down();
+            case "Down":
+                remote.setCommand(primaryDown);
+                remote.buttonPressed();
                 break;
                 
-            case "left":
-                left();
+            case "Left":
+                remote.setCommand(primaryLeft);
+                remote.buttonPressed();
                 break;
                 
-            case "right":
-                right();
+            case "Right":
+                remote.setCommand(primaryRight);
+                remote.buttonPressed();
                 break;
                 
-            case "attack":
-                attack();
+            case "Attack":
+                remote.setCommand(primaryAttack);
+                remote.buttonPressed();
                 break;
                 
-            case "run":
-                run();
+            case "Run":
+                remote.setCommand(primaryRun);
+                remote.buttonPressed();
                 break;
                 
-            case "start":
-                start();
+            case "Start":
+                remote.setCommand(primaryStart);
+                remote.buttonPressed();
                 break;
         }
-    }
-
-    public void up()
-    {
-        System.out.print("You moved up\n");
-        //CreateGui.gameScreenText.setText("You moved up");
-    }
-    
-    public void down()
-    {
-        System.out.print("You moved down\n");
-    }
-    
-    public void left()
-    {
-        System.out.print("You moved left\n");
-    }
-    
-    public void right()
-    {
-        System.out.print("You moved right\n");
-    }
-    
-    public void attack()
-    {
-        System.out.print("You attacked\n");
-    }
-    
-    public void run()
-    {
-        System.out.print("You ran away\n");
-    }
-    
-    public void start()
-    {
-       System.out.print("Game started\n");
-       //CreateGui.startButton.setVisible(false);
     }
 }
