@@ -1,9 +1,10 @@
 package Avatar;
-import java.util.*;
-/**
- *
- * @author Tadhg
- */
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+
 public class CareTaker
 {
     private List<Memento> mementoList = new ArrayList<Memento>();

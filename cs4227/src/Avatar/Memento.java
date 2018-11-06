@@ -1,9 +1,8 @@
+
 package Avatar;
 
-/**
- *
- * @author Tadhg
- */
+public class Memento
+=======
 class Memento 
 {
     private int Hp;

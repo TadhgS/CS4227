@@ -44,7 +44,7 @@ public class Avatar implements AvatarInterface
     {
         this.atk = currentAtk;
     }
-    
+
     public int setState()
     {
         return this.currentHp;
