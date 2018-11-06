@@ -1,8 +1,6 @@
 
 package Avatar;
 
-public class Memento
-=======
 class Memento 
 {
     private int Hp;
