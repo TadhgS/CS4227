@@ -65,6 +65,8 @@ public class login extends JFrame implements ActionListener
             
             case "Update User":
                 setVisible(false);
+                Avatar.UpdateUser u = new Avatar.UpdateUser();
+                u.setVisible(true);
                  
         }
     } 
