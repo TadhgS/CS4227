@@ -9,7 +9,8 @@ package CreateMaze;
  *
  * @author danie
  */
-public class Room 
-{ //needs implimentation
-    
+public interface Room 
+{
+    void createWalls();
+    void createTiles();
 }

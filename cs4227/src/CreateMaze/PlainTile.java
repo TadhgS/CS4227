@@ -11,8 +11,6 @@ package CreateMaze;
  */
 public class PlainTile extends Tile
 {
-
-
     @Override
     public String name() 
     {
