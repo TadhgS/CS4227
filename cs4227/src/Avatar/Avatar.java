@@ -44,6 +44,20 @@ public class Avatar implements AvatarInterface
         this.atk = currentAtk;
 
     }
+    public int setState()
+    {
+        return this.currentHp;
+    }
+    
+     public Memento saveState()
+     {
+      return new Memento(currentHp);
+   }
+
+   public void getState(Memento memento)
+   {
+      currentHp = memento.getHp();
+   }
 
    
     

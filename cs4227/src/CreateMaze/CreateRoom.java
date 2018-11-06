@@ -10,6 +10,8 @@ package CreateMaze;
  * @author William
  */
 
+import Avatar.Avatar;
+import Avatar.CareTaker;
 import java.util.ArrayList;
 
 public class CreateRoom extends AbstractRoom{
@@ -55,6 +57,11 @@ public class CreateRoom extends AbstractRoom{
             for(int t = 0; t < 4; t++){
                 tiles.add(createTile());
             }
+            Avatar avatar = new Avatar();
+            CareTaker careTaker = new CareTaker();
+            
+            avatar.setState();
+            careTaker.add(avatar.saveState());
             
             
             return null;
