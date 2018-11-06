@@ -56,9 +56,6 @@ public class CreateRoom
             }
             //For extensiblity tiles can copy walls to create new types of tiles (mob tiles, pitfalls, etc.)
             
-            for(int t = 0; t < 4; t++){
-                tiles.add(createTile());
-            }
             Avatar avatar = new Avatar();
             CareTaker careTaker = new CareTaker();
             
