@@ -2,7 +2,6 @@ package Gui;
 
 import java.awt.event.*;
 import javax.swing.*;
-import Maze.Main;
 
 /**
  *
@@ -12,7 +11,8 @@ public class login extends JFrame implements ActionListener
 {
     
     private static boolean security;
-    private JButton loginButton, newUser;
+    private final JButton loginButton;
+    private final JButton updateUser;
     private final JTextField userText;
     public static String userName = "";
     
@@ -38,10 +38,10 @@ public class login extends JFrame implements ActionListener
         loginButton.addActionListener(this);
         add(loginButton);
         
-        newUser = new JButton("New User");
-        newUser.setBounds(50, 80, 100, 25);
-        newUser.addActionListener(this);
-        add(newUser);
+        updateUser = new JButton("Update User");
+        updateUser.setBounds(20, 80, 110, 25);
+        updateUser.addActionListener(this);
+        add(updateUser);
     }
 
     @Override
@@ -63,8 +63,9 @@ public class login extends JFrame implements ActionListener
             }
             break;
             
-            //case "New User":
-                
+            case "Update User":
+                setVisible(false);
+                 
         }
     } 
 }
