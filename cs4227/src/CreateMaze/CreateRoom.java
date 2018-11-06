@@ -65,8 +65,6 @@ public class CreateRoom
             avatar.setState();
             careTaker.add(avatar.saveState());
             
-            Avatar avatar = new Avatar();
-            CareTaker careTaker = new CareTaker();
             
             avatar.setState();
             careTaker.add(avatar.saveState());
