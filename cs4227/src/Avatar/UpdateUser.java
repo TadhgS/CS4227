@@ -57,7 +57,7 @@ public class UpdateUser extends JFrame implements ActionListener
                 {
                     try
                     {
-                        String filename= "./src/Gui/loginDetail.txt";
+                        String filename = "./src/Data/loginDetail.txt";
                         FileWriter fw = new FileWriter(filename,true); //the true will append the new data
                         fw.write(userName+"\n");//appends the string to the file
                         fw.close();
@@ -85,9 +85,9 @@ public class UpdateUser extends JFrame implements ActionListener
                 {
                     try
                     {
-                        File inputFile = new File("./src/Gui/loginDetail.txt");
+                        File inputFile = new File("./src/Data/loginDetail.txt");
                         File tempFile = new File(inputFile.getAbsolutePath() + ".tmp");
-                        BufferedReader br = new BufferedReader( new FileReader("./src/Gui/loginDetail.txt"));
+                        BufferedReader br = new BufferedReader( new FileReader("./src/Data/loginDetail.txt"));
                         PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
                         String line = null;
                         

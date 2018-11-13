@@ -9,6 +9,7 @@ package Interceptor;
  *
  * @author Tadhg
  */
-public interface Interceptor {
+public interface Interceptor 
+{
     
 }

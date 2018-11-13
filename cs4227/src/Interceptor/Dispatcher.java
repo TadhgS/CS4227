@@ -9,6 +9,12 @@ package Interceptor;
  *
  * @author Dsims
  */
-public class Dispatcher implements Interceptor{
+public class Dispatcher
+{
+    public Dispatcher(Interceptor i)
+    {
+        i = new ConcreteInterceptor();
+        return;
+    }
 
 }

@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.event.*;
 import Controller.Command;
 import Controller.Button;
+import Interceptor.ConcreteInterceptor;
+import Interceptor.ContextObject;
 
 /**
  *
@@ -11,7 +13,7 @@ import Controller.Button;
  */
 public class CreateGui extends JFrame implements ActionListener 
 {
-    public static JButton upButton, downButton, leftButton, rightButton, attackButton, runButton, startButton;
+    public static JButton upButton, downButton, leftButton, rightButton, attackButton, runButton, startButton, logoutButton;
     public static JTextField userText, scoreText, healthText, timerText, gameScreenText;
     
     public CreateGui()
@@ -88,6 +90,11 @@ public class CreateGui extends JFrame implements ActionListener
         startButton.addActionListener(this);
         add(startButton);
         
+        JButton logoutButton = new JButton("Logout");
+        logoutButton.setBounds(600, 300, 80, 25);
+        logoutButton.addActionListener(this);
+        add(logoutButton);
+        
     }
 
     Command command;
@@ -95,7 +102,17 @@ public class CreateGui extends JFrame implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e)
     {
-       Button.buttonRemote(e.getActionCommand());
+        if("Logout".equals(e.getActionCommand()))
+        {
+            setVisible(false);
+            ContextObject cO = new ContextObject();
+            ConcreteInterceptor IC = new ConcreteInterceptor(cO);
+            Gui.login l = new Gui.login();
+            l.setVisible(true);
+        }
+        else
+        {
+            Button.buttonRemote(e.getActionCommand());
+        }
     }
-    
 }
