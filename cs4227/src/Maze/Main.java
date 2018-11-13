@@ -1,5 +1,6 @@
 
 package Maze;
+
 import Avatar.Avatar;
 import Gui.CreateGui;
 import Interceptor.ConcreteInterceptor;
@@ -15,7 +16,6 @@ public class Main
     {
         Interceptor.ConcreteInterceptor i = new ConcreteInterceptor();
         Interceptor.Dispatcher d = new Dispatcher(i);
-        Avatar a = new Avatar();
         login();
     }
     

@@ -1,5 +1,5 @@
 package CreateMaze;
-import Controller.UpdateUserScore;
+import Avatar.Avatar;
 /**
  *
  * @author Tadhg
@@ -7,10 +7,10 @@ import Controller.UpdateUserScore;
 public class NewCoin implements CoinInterface
 {
     @Override
-   public void updateScore()
+   public void updateScore(Avatar a)
    {
-       UpdateUserScore updateUserScore = new UpdateUserScore();
-       updateUserScore.updateUserScore();
+       int score = 10;
+       a.setScore(score);
    }
     
 }
