@@ -14,7 +14,7 @@ public class File
     public ArrayList<String> getFile()
     {
         ArrayList<String> myList = new ArrayList<>();
-        String fileToParse = "./src/Gui/loginDetail.txt";
+        String fileToParse = "./src/Data/loginDetail.txt";
         
         BufferedReader fileReader = null;
          
