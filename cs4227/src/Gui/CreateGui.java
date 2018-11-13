@@ -1,5 +1,6 @@
 package Gui;
 
+import Avatar.Avatar;
 import javax.swing.*;
 import java.awt.event.*;
 import Controller.Command;
@@ -13,6 +14,7 @@ import Interceptor.ContextObject;
  */
 public class CreateGui extends JFrame implements ActionListener 
 {
+    Avatar a = new Avatar();
     public static JButton upButton, downButton, leftButton, rightButton, attackButton, runButton, startButton, logoutButton;
     public static JTextField userText, scoreText, healthText, timerText, gameScreenText;
     
@@ -107,6 +109,7 @@ public class CreateGui extends JFrame implements ActionListener
             setVisible(false);
             ContextObject cO = new ContextObject();
             ConcreteInterceptor IC = new ConcreteInterceptor(cO);
+            ConcreteInterceptor ICx = new ConcreteInterceptor(a);        
             Gui.login l = new Gui.login();
             l.setVisible(true);
         }
