@@ -13,12 +13,23 @@ public class Avatar implements AvatarInterface
 {
     
      public static int maxHp, currentHp;
-     public int atk;
+     public int atk, score;
      
     public Avatar()
     {
         this.maxHp = 40;
         this.atk = 2;
+        this.score = 0;
+    }
+    
+    public int getScore()
+    {
+       return score; 
+    }
+    
+    public void setScore(int score)
+    {
+        this.score += score;
     }
 
     @Override

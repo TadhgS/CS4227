@@ -5,6 +5,8 @@
  */
 package Interceptor;
 
+import Avatar.Avatar;
+import Gui.login;
 import java.io.*;
 
 /**
@@ -13,6 +15,7 @@ import java.io.*;
  */
 public class ConcreteInterceptor implements Interceptor 
 {
+    String name;
     public ConcreteInterceptor()
     {
         
@@ -21,7 +24,7 @@ public class ConcreteInterceptor implements Interceptor
     public ConcreteInterceptor(ContextObject CO)
     {
         String inOut = CO.inOut;
-        String name = CO.userName;
+        name = login.userName;
         String date = CO.now.toString();
         
         try
@@ -29,6 +32,23 @@ public class ConcreteInterceptor implements Interceptor
             String fileName = "./src/Data/logDetails.txt";
             FileWriter fw = new FileWriter(fileName,true); //the true will append the new data
             fw.write(name + inOut + date + "\n");//appends the string to the file
+            fw.close();
+        }
+        catch(IOException ioe)
+        {
+            System.err.println("IOException: " + ioe.getMessage());
+        }
+    }
+    
+    public ConcreteInterceptor(Avatar a)
+    {
+        int score = a.getScore();
+        name = login.userName;
+        try
+        {
+            String fileName = "./src/Data/leaderBoard.txt";
+            FileWriter fw = new FileWriter(fileName,true); //the true will append the new data
+            fw.write(name + " " + score + "\n");//appends the string to the file
             fw.close();
         }
         catch(IOException ioe)
