@@ -3,11 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Controller;
 
 /**
  *
- * @author Tadhg
+ * @author Dsims
  */
-public class CareTaker {
+public class PlayerDisplayInfo {
+    public static String movementAction;
+    public static String movementResult;
     
 }
