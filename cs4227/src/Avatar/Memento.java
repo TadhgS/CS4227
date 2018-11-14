@@ -4,14 +4,17 @@ import CreateMaze.Room;
 
 class Memento 
 {
-    private int Hp,Score,attack;
+    private int Hp,score,atk;
+
     private Room room;
     
-    public Memento(int hp,int score,int attack)
+
+    public Memento(int hp,int score,int atk)
+
     {
-        this.Hp = hp;  
-        this.Score = score;
-        this.attack = attack;
+        this.Hp = hp;
+        this.score = score;
+        this.atk = atk;
     }
     
     public Memento(Room room)
@@ -26,12 +29,13 @@ class Memento
     
     public int getScore()
     {
-        return Score;
+        return score;
     }
     
-    public int getAttack()
+    public int getAtk()
     {
-        return attack;
+        return atk;
+
     }
     
     public Room getRoom()
