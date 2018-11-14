@@ -61,10 +61,10 @@ public class Avatar implements AvatarInterface
         return this.currentHp;
     }
     
-     public Memento saveState()
-     {
-      return new Memento(currentHp);
-   }
+    public Memento saveState()
+    {
+     return new Memento(currentHp,score,atk);
+    }
 
    public void getState(Memento memento)
    {
