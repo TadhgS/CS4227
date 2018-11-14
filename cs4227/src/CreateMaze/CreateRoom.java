@@ -24,8 +24,11 @@ public class CreateRoom
         RoomPartBuilder builder = new RoomPartBuilder();
         
         public ArrayList CreateWalls(int size){
+            door = false;
+            
+            wallsArr = new int[size*4];
             for(int i = 0; i < size*4; i++){
-                wallsArr[i] = (int) (Math.random() * 4) ;
+                wallsArr[i] = (int) ((Math.random() * 4)+1) ;
             }
             for(int j = 0; j < size*4; j++){
                 if(wallsArr[j] == 1){
@@ -38,7 +41,7 @@ public class CreateRoom
                     walls.add(builder.createSolidWall());
                 }  
                 else if(wallsArr[j] == 4 && door == true){
-                    wallsArr[j] = (int) (Math.random() * 3) ;
+                    wallsArr[j] = (int) ((Math.random() * 3)+1) ;
                     switch (wallsArr[j]) {
                         case 1:
                             walls.add(builder.createSpikedWall());
@@ -52,13 +55,13 @@ public class CreateRoom
                     }
                 }
                 else
+                {
                     walls.add(builder.createDoorWall());
+                    door = true;
+                }
             }
             //For extensiblity tiles can copy walls to create new types of tiles (mob tiles, pitfalls, etc.)
             
-            for(int t = 0; t < 4; t++){
-                //tiles.add(createTile());
-            }
             Avatar avatar = new Avatar();
             CareTaker careTaker = new CareTaker();
             
@@ -68,12 +71,13 @@ public class CreateRoom
             
             avatar.setState();
             careTaker.add(avatar.saveState());
-            return null;
+            return walls;
         }
             
         public ArrayList CreateTiles(int size){
+            tilesArr = new int[size*size];
             for(int i = 0; i < size*size; i++){
-                tilesArr[i] = (int) (Math.random() * 4) ;
+                tilesArr[i] = (int) ((Math.random() * 4)+1) ;
             }
             
             for(int t = 0; t < size*size ; t++){

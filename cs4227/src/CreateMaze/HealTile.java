@@ -26,7 +26,7 @@ public class HealTile extends Tile{
     @Override
     public double damage() 
     {
-        return 0.0;
+        return -1.0;
     }
     
 }

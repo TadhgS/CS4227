@@ -21,11 +21,8 @@ public class Assembler
         parts.add(part);
     }
     
-    public void showParts()
+    public List<Part> getParts()
     {
-        for (Part part : parts)
-        {
-            System.out.print("Part: " + part.name());
-        }
+        return parts;
     }
 }

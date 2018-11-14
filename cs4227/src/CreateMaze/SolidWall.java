@@ -14,7 +14,7 @@ public class SolidWall extends Wall
     @Override
     public String name() 
     {
-        return "Solid wall";
+        return "Solid Wall";
     }
 
     @Override

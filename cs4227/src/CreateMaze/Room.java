@@ -5,12 +5,14 @@
  */
 package CreateMaze;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author danie
  */
 public interface Room 
 {
-    void createWalls();
-    void createTiles();
+    ArrayList createWalls();
+    ArrayList createTiles();
 }

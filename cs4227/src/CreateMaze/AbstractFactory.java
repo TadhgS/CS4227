@@ -10,5 +10,5 @@ package CreateMaze;
  * @author David Sims
  */
 public abstract class AbstractFactory {
-    abstract Room getRoom(String roomsize);
+    public abstract Room getRoom(String roomsize);
 }

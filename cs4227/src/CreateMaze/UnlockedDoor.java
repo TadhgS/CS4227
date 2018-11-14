@@ -14,7 +14,7 @@ public class UnlockedDoor  extends Door{
     @Override
     public String name() 
     {
-        return "unlocked door";
+        return "Unlocked Door";
     }
 
     @Override

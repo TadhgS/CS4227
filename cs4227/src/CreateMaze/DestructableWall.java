@@ -14,7 +14,7 @@ public class DestructableWall extends Wall
     @Override
     public String name() 
     {
-        return "Destructable wall";
+        return "Destructable Wall";
     }
 
     @Override

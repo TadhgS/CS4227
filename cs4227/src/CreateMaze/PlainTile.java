@@ -14,7 +14,7 @@ public class PlainTile extends Tile
     @Override
     public String name() 
     {
-        return " Plain Tile";
+        return "Plain Tile";
     }
 
     @Override
