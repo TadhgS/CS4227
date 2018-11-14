@@ -13,6 +13,7 @@ package CreateMaze;
 import Avatar.Avatar;
 import Avatar.SaveState;
 import java.util.ArrayList;
+import Avatar.CareTaker;
 
 public class CreateRoom
 {
@@ -67,7 +68,8 @@ public class CreateRoom
             
             
             avatar.setState();
-            careTaker.addHp(avatar.saveState());
+            careTaker.addAvatar(avatar.saveState());
+
             return walls;
         }
             
