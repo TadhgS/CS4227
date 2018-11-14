@@ -119,7 +119,7 @@ public class CreateGui extends JFrame implements ActionListener
         add(startButton);
         
         JButton logoutButton = new JButton("Logout");
-        logoutButton.setBounds(600, 300, 80, 25);
+        logoutButton.setBounds(600, 325, 80, 25);
         logoutButton.addActionListener(this);
         add(logoutButton);
         

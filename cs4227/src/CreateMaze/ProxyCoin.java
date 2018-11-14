@@ -6,11 +6,11 @@ package CreateMaze;
  */
 public class ProxyCoin implements CoinInterface
 {
-    private NewCoin newCoin = new NewCoin();
+    //private NewCoin newCoin = new NewCoin();
     @Override
     public void updateScore()
     {
-        newCoin.updateScore();
+        //newCoin.updateScore();
     }
     
 }

@@ -1,5 +1,7 @@
 package CreateMaze;
 
+import Avatar.Avatar;
+
 /**
  *
  * @author Tadhg
