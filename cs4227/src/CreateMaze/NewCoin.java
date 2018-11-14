@@ -1,7 +1,10 @@
 package CreateMaze;
 import Avatar.Avatar;
+/**
+ *
+ * @author Tadhg
+ */
 
- 
 public class NewCoin implements CoinInterface
 {
    @Override
@@ -9,7 +12,5 @@ public class NewCoin implements CoinInterface
    {
        int score = 10;
        a.setScore(score);
-   }
-
-    
+   }  
 }
