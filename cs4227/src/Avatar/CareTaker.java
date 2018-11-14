@@ -7,16 +7,27 @@ import java.util.List;
 
 public class CareTaker
 {
-    private List<Memento> mementoList = new ArrayList<Memento>();
+    private List<Memento> hpMementoList = new ArrayList<Memento>();
+    private List<Memento> roomMementoList = new ArrayList<Memento>();
     
-    public void add(Memento hpState)
+    public void addHp(Memento State)
     {
-        mementoList.add(hpState);
+        hpMementoList.add(State);
     }
     
-    public Memento get(int i)
+    public Memento getHp(int i)
     {
-        return mementoList.get(i);
+        return hpMementoList.get(i);
+    }
+    
+    public void addRoom(Memento State)
+    {
+        roomMementoList.add(State);
+    }
+    
+    public Memento getRoom(int i)
+    {
+        return roomMementoList.get(i);
     }
     
 }
