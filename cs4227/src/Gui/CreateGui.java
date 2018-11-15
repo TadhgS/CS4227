@@ -2,7 +2,6 @@ package Gui;
 
 import Avatar.Avatar;
 import Avatar.CheckPoint;
-import Avatar.SaveState;
 import javax.swing.*;
 import java.awt.event.*;
 import Controller.Command;
@@ -10,6 +9,7 @@ import Controller.Button;
 import Controller.PlayerDisplayInfo;
 import Interceptor.ConcreteInterceptor;
 import Interceptor.ContextObject;
+import Interceptor.Dispatcher;
 import java.awt.Dimension;
 import java.util.ArrayList;
 
@@ -161,7 +161,10 @@ public class CreateGui extends JFrame implements ActionListener
         {
             setVisible(false);
             ContextObject cO = new ContextObject();
+            Dispatcher dispatcher = new Dispatcher();
             ConcreteInterceptor IC = new ConcreteInterceptor(cO);
+            dispatcher.register(IC);
+            dispatcher.dispatch();
             Gui.login l = new Gui.login();
             l.setVisible(true);
         }

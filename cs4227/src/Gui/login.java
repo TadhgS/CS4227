@@ -1,7 +1,9 @@
 package Gui;
 
 import Interceptor.ConcreteInterceptor;
+import Interceptor.Dispatcher;
 import Interceptor.ContextObject;
+import Interceptor.Interceptor;
 import java.awt.event.*;
 import javax.swing.*;
 
@@ -61,7 +63,10 @@ public class login extends JFrame implements ActionListener
             else
             {
                 ContextObject cO = new ContextObject(userName);
-                ConcreteInterceptor IC = new ConcreteInterceptor(cO);
+                Dispatcher dispatcher = new Dispatcher();
+                Interceptor IC = new ConcreteInterceptor(cO);
+                dispatcher.register(IC);
+                dispatcher.dispatch();
                 setVisible(false);
                 Maze.Main.showMazeGui();
             }
