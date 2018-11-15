@@ -15,7 +15,7 @@ import java.io.*;
  */
 public class ConcreteInterceptor implements Interceptor 
 {
-    String name;
+    String name, inOut, date;
     public ConcreteInterceptor()
     {
         
@@ -23,10 +23,15 @@ public class ConcreteInterceptor implements Interceptor
     
     public ConcreteInterceptor(ContextObject CO)
     {
-        String inOut = CO.inOut;
+        inOut = CO.inOut;
         name = login.userName;
-        String date = CO.now.toString();
+        date = CO.now.toString();
         
+        
+    }
+    
+    public void runIntercept()
+    {
         try
         {
             String fileName = "./src/Data/logDetails.txt";
