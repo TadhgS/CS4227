@@ -8,6 +8,6 @@ import Avatar.Avatar;
  */
 public interface CoinInterface 
 {
-    public void updateScore();
+    public void updateScore(Avatar a);
     
 }
