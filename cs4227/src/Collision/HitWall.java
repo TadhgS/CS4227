@@ -27,7 +27,7 @@ public class HitWall
         }
         else if ( wallTypeHit == "Solid Wall")
         {
-            health = health-1;
+        health = health;
             avatar.setCurrentHP(health);
             return avatar;
         }

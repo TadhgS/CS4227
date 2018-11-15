@@ -5,7 +5,7 @@ import java.util.List;
 
 
 
-public class CareTaker
+public class CheckPoint
 {
     private List<Memento> avatarMementoList = new ArrayList<Memento>();
     private List<Memento> roomMementoList = new ArrayList<Memento>();
@@ -18,6 +18,11 @@ public class CareTaker
     public Memento getAvatar(int i)
     {
         return avatarMementoList.get(i);
+    }
+    
+    public Memento getLastAvatar()
+    {
+        return avatarMementoList.get(avatarMementoList.size()-1);
     }
     
     public void addRoom(Memento State)
