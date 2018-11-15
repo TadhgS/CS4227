@@ -187,7 +187,6 @@ public class CreateGui extends JFrame implements ActionListener
             attackButton.setVisible(false);
             
             a.setPosition(previousPosition);
-            gameText.setText(gameText.getText() + "You ran... like a coward\n");
             printBoard();
         }
         else if("Attack".equals(e.getActionCommand()))
@@ -202,10 +201,8 @@ public class CreateGui extends JFrame implements ActionListener
             
             a.setScore(a.getScore() + 1);
             a.setCurrentHP(a.getHP() -2);
-            healthText.setText("Health: " + a.getHP());
-            scoreText.setText("Coins: " + a.getScore());
+            updateGuiStats();
             
-            gameText.setText(gameText.getText() + "Oh......You didnt die....yet\n");
             ((CreateMaze.Assembler)t.get(a.getPosition())).getParts().set(0, new CreateMaze.PlainTile());
             printBoard();
         }
@@ -232,9 +229,7 @@ public class CreateGui extends JFrame implements ActionListener
         attackButton.setVisible(false);
         startButton.setVisible(false);
         reStartButton.setVisible(true);
-        healthText.setText("Health: " + a.getHP());
-        scoreText.setText("Coins: " + a.getScore());
-        floorText.setText("Floor: " + a.getFloor());
+        updateGuiStats();
         
         
         CreateMaze.Room room = roomFactory.getRoom("small");
@@ -320,7 +315,6 @@ public class CreateGui extends JFrame implements ActionListener
             {
                 ((CreateMaze.Assembler)t.get(a.getPosition())).getParts().set(0, new CreateMaze.PlainTile());
             }
-            
         }
         if(a.getHP() <= 0)
         {
@@ -333,11 +327,8 @@ public class CreateGui extends JFrame implements ActionListener
             attackButton.setVisible(false);
             tryButton.setVisible(true);
             gameText.setText(gameText.getText() + login.userName  + " died....... good going." +  "\n");
-            
         }
-        healthText.setText("Health: " + a.getHP());
-        scoreText.setText("Coins: " + a.getScore());
-        floorText.setText("Floor: " + a.getFloor());
+        updateGuiStats();
     }
     
     private void printBoard()
@@ -373,9 +364,7 @@ public class CreateGui extends JFrame implements ActionListener
         a.setPosition(1);
         }
         
-        healthText.setText("Health: " + a.getHP());
-        scoreText.setText("Coins: " + a.getScore());
-        floorText.setText("Floor: " + a.getFloor());
+        updateGuiStats();
         
         CreateMaze.AbstractFactory roomFactory;
         roomFactory = CreateMaze.FactoryProducer.getFactory("room");
@@ -399,5 +388,12 @@ public class CreateGui extends JFrame implements ActionListener
             gameText.setText(gameText.getText() + "You have moved up a floor.\n");
             checkPoint.addAvatar(a.saveState());
         }
+    }
+    
+    private void updateGuiStats()
+    {
+        healthText.setText("Health: " + a.getHP());
+        scoreText.setText("Coins: " + a.getScore());
+        floorText.setText("Floor: " + a.getFloor());
     }
 }
