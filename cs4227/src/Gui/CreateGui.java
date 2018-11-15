@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class CreateGui extends JFrame implements ActionListener 
 {
     Avatar a = new Avatar();
-    public static JButton upButton, downButton, leftButton, rightButton, attackButton, runButton, startButton;
+    public static JButton upButton, downButton, leftButton, rightButton, attackButton, runButton, startButton, reStartButton;
     public static JTextField userText, scoreText, healthText, timerText;
     public static JTextArea gameScreenText, gameText;
     public int characterPosition = 1;
@@ -49,7 +49,7 @@ public class CreateGui extends JFrame implements ActionListener
         
         healthText = new JTextField();
         healthText.setBounds(320, 1, 100, 25);
-        healthText.setText("Health: " /*+ Avatar.Avatar.getHP()*/);
+        healthText.setText("Health: ");
         healthText.setEditable(false);
         add(healthText);
         
@@ -122,6 +122,12 @@ public class CreateGui extends JFrame implements ActionListener
         startButton.addActionListener(this);
         add(startButton);
         
+        reStartButton = new JButton("ReStart");
+        reStartButton.setBounds(600, 300, 80, 25);
+        reStartButton.addActionListener(this);
+        add(reStartButton);
+        reStartButton.setVisible(false);
+        
         JButton logoutButton = new JButton("Logout");
         logoutButton.setBounds(600, 325, 80, 25);
         logoutButton.addActionListener(this);
@@ -146,6 +152,10 @@ public class CreateGui extends JFrame implements ActionListener
         {
             startGame();
         }
+        else if("Start".equals(e.getActionCommand()))
+        {
+            startGame();
+        }
         else
         {
             Button.buttonRemote(e.getActionCommand());
@@ -163,6 +173,9 @@ public class CreateGui extends JFrame implements ActionListener
         rightButton.setVisible(true);
         runButton.setVisible(true);
         attackButton.setVisible(true);
+        startButton.setVisible(false);
+        reStartButton.setVisible(true);
+        healthText.setText("Health: " + a.getHP());
         
         CreateMaze.AbstractFactory roomFactory;
         roomFactory = CreateMaze.FactoryProducer.getFactory("room");
@@ -196,47 +209,61 @@ public class CreateGui extends JFrame implements ActionListener
 
     private void updateGameInfo() {
         gameText.setText(gameText.getText()  + PlayerDisplayInfo.movementAction +  "\n");
-        CreateMaze.Assembler x = null;
+        CreateMaze.Assembler x,y = null;
         
         Collision.HitWall hitWall = new Collision.HitWall(a);
+        Collision.HitTile hitTile = new Collision.HitTile(a);
+        x = (CreateMaze.Assembler)w.get(characterPosition);
+        y = (CreateMaze.Assembler)t.get(characterPosition);
+        
         
         if((characterPosition == 0 || characterPosition == 1)  && PlayerDisplayInfo.movementAction == "Moving Up")
         {
-            x = (CreateMaze.Assembler)w.get(characterPosition);
             a = hitWall.wallHitHealth(x.getParts().get(0).name());
             hitWall.wallHitDoor(x.getParts().get(0).name());
-            gameText.setText(gameText.getText() + "user hit by " + x.getParts().get(0).name() + "\n");
+            gameText.setText(gameText.getText() + "You walked into a " + x.getParts().get(0).name() + "\n");
         }
         
         else if((characterPosition == 2 || characterPosition == 3)  && PlayerDisplayInfo.movementAction == "Moving Down")
         {
-            x = (CreateMaze.Assembler)w.get(characterPosition);
             a = hitWall.wallHitHealth(x.getParts().get(0).name());
             hitWall.wallHitDoor(x.getParts().get(0).name());
-            gameText.setText(gameText.getText() + "user hit by " + x.getParts().get(0).name() + "\n");
+            gameText.setText(gameText.getText() + "You walked into a " + x.getParts().get(0).name() + "\n");
         }
         
         else if((characterPosition == 0 || characterPosition == 2)  && PlayerDisplayInfo.movementAction == "Moving Left")
         {
-            x = (CreateMaze.Assembler)w.get(characterPosition);
             a = hitWall.wallHitHealth(x.getParts().get(0).name());
             hitWall.wallHitDoor(x.getParts().get(0).name());
-            gameText.setText(gameText.getText() + "user hit by " + x.getParts().get(0).name() + "\n");
+            gameText.setText(gameText.getText() + "You walked into a " + x.getParts().get(0).name() + "\n");
         }
         
         else if((characterPosition == 1 || characterPosition == 3)  && PlayerDisplayInfo.movementAction == "Moving Right")
         {
-            x = (CreateMaze.Assembler)w.get(characterPosition);
+            
             a = hitWall.wallHitHealth(x.getParts().get(0).name());
             hitWall.wallHitDoor(x.getParts().get(0).name());
-            gameText.setText(gameText.getText() + "user hit by " + x.getParts().get(0).name() + "\n");
+            gameText.setText(gameText.getText() + "You walked into a " + x.getParts().get(0).name() + "\n");
         }
-        
         else
-              characterPosition  = characterPosition + Integer.parseInt( PlayerDisplayInfo.movementResult);
-        ///////Do tile stuff here///////////////////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        {
+            characterPosition  = characterPosition + Integer.parseInt( PlayerDisplayInfo.movementResult);
+            a = hitTile.tileHitHealth(x.getParts().get(0).name());
+            gameText.setText(gameText.getText() + "You walk on a  " + y.getParts().get(0).name() + "\n");
+        }
+        if(a.getHP() <= 0)
+        {
+            a.setCurrentHP(0);
+            upButton.setVisible(false);
+            downButton.setVisible(false);
+            leftButton.setVisible(false);
+            rightButton.setVisible(false);
+            runButton.setVisible(false);
+            attackButton.setVisible(false);
+            gameText.setText(gameText.getText() + login.userName  + " died....... good going." +  "\n");
+            
+        }
+        healthText.setText("Health: " + a.getHP());
     }
     
     private void printBoard()

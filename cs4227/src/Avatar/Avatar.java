@@ -18,6 +18,7 @@ public class Avatar implements AvatarInterface
     public Avatar()
     {
         this.maxHp = 40;
+        currentHp = maxHp;
         this.atk = 2;
         this.score = 0;
     }
