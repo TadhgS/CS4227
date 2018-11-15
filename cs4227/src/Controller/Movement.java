@@ -19,22 +19,26 @@ class Movement
     
     public void moveUp()
     {
-        System.out.println("Moving Up");
+        PlayerDisplayInfo.movementAction = "Moving Up";
+        PlayerDisplayInfo.movementResult = "-2";
     }
     
     public void moveDown()
     {
-        System.out.println("Moving Down");
+        PlayerDisplayInfo.movementAction = "Moving Down";
+        PlayerDisplayInfo.movementResult = "+2";
 
     }
     public void moveLeft()
     {
-        System.out.println("Moving Left");
+        PlayerDisplayInfo.movementAction = "Moving Left";
+        PlayerDisplayInfo.movementResult = "-1";
 
     }
     public void moveRight()
     {
-        System.out.println("Moving Right");
+        PlayerDisplayInfo.movementAction = "Moving Right";
+        PlayerDisplayInfo.movementResult = "+1";
 
     }
 }

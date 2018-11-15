@@ -63,12 +63,15 @@ public class CreateRoom
             }
             //For extensiblity tiles can copy walls to create new types of tiles (mob tiles, pitfalls, etc.)
             
-            Avatar avatar = new Avatar();
-            SaveState careTaker = new SaveState();
+            
+            
+            //creating instance of checkpoint.
+            /*Avatar avatar = new Avatar();
+            SaveState careTaker = new SaveState(); 
             
             
             avatar.setState();
-            careTaker.addAvatar(avatar.saveState());
+            careTaker.addAvatar(avatar.saveState());*/
 
             return walls;
         }

@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Collision;
+package Controller;
 
 /**
  *
- * @author Tadhg
+ * @author Dsims
  */
-public class HitEnemy {
+public class PlayerDisplayInfo {
+    public static String movementAction;
+    public static String movementResult;
     
 }

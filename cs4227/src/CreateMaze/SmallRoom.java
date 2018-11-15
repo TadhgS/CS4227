@@ -17,13 +17,13 @@ public class SmallRoom implements Room{
     
     @Override
     public ArrayList createWalls() {
-        ArrayList CreateWalls = createRoom.CreateWalls(3);
+        ArrayList CreateWalls = createRoom.CreateWalls(2);
         return CreateWalls;
     }
 
     @Override
     public ArrayList createTiles() {
-        ArrayList CreateTiles = createRoom.CreateTiles(3);
+        ArrayList CreateTiles = createRoom.CreateTiles(2);
         return CreateTiles;
     }
     

@@ -13,11 +13,12 @@ public class Avatar implements AvatarInterface
 {
     
      public static int maxHp, currentHp;
-     public int atk, score;
+     public int atk, score, floor;
      
     public Avatar()
     {
         this.maxHp = 40;
+        currentHp = maxHp;
         this.atk = 2;
         this.score = 0;
     }
@@ -29,7 +30,7 @@ public class Avatar implements AvatarInterface
     
     public void setScore(int score)
     {
-        this.score += score;
+        this.score = score;
     }
 
     @Override
@@ -72,7 +73,14 @@ public class Avatar implements AvatarInterface
    {
       currentHp = memento.getHp();
    }
-
    
-    
+    public void setFloor(int floor) 
+    {
+        this.floor = floor;
+    }
+
+    public int getFloor() 
+    {
+        return floor;
+    }
 }

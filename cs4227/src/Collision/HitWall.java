@@ -6,33 +6,51 @@ import CreateMaze.CreateRoom;
 
 public class HitWall 
 {
+    Avatar.Avatar avatar;
+    public HitWall(Avatar.Avatar a){
+        avatar = a;
+    }
     private int health;
-    public int wallHit(String wallTypeHit)
+    
+    public Avatar.Avatar wallHitHealth(String wallTypeHit)
     {         
-        Avatar.Avatar avatar = new Avatar.Avatar();
         health = avatar.getHP();
-        if( wallTypeHit == "UnlockedDoor")
+        if( wallTypeHit == "Unlocked Door")
         {
-            return health;
+            return avatar;
         }
-        else if ( wallTypeHit == "SpickedWall")
+        else if ( wallTypeHit == "Spiked Wall")
         {
             health = health-5;
             avatar.setCurrentHP(health);
-            return health;
+            return avatar;
         }
-        else if ( wallTypeHit == "SolidWall")
+        else if ( wallTypeHit == "Solid Wall")
         {
             health = health-1;
             avatar.setCurrentHP(health);
-            return health;
+            return avatar;
         }
-        else if ( wallTypeHit == "DestructableWall")
+        else if ( wallTypeHit == "Destructable Wall")
         {
             health = health-2;
             avatar.setCurrentHP(health);
-            return health;
+            return avatar;
         }
-        return health;
+        return avatar;
+    }
+    
+    public Boolean wallHitDoor(String wallTypeHit)
+    {
+        if( wallTypeHit == "Unlocked Door")
+        {
+            return true;
+        }
+        else if ( wallTypeHit == "Destructable Wall")
+        {
+            return true;
+        }
+        else
+            return false;
     }
 }
