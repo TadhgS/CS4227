@@ -31,9 +31,8 @@ public class Sounds
         AudioInputStream ais;
         Clip clip;
         
-        switch(action)
+        if(action == "attack")
         {
-            case "attack":
                 PlayerDisplayInfo.soundMade = "*Sword Sounds*";
                 ais = AudioSystem.getAudioInputStream(new File("./src/Data/sword_cutting_through_air.wav").getAbsoluteFile());
                 clip = AudioSystem.getClip();
@@ -41,9 +40,10 @@ public class Sounds
                 clip.start();
                 Thread.sleep(2000);
                 clip.stop();
-                
-                
-            case "run":
+        }
+                  
+        else if(action == "run")
+        {
                PlayerDisplayInfo.soundMade = "*Running Sound*";
                 ais = AudioSystem.getAudioInputStream(new File("./src/Data/person_running_on_pavement.wav").getAbsoluteFile());
                 clip = AudioSystem.getClip();
