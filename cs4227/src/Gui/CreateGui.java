@@ -175,6 +175,7 @@ public class CreateGui extends JFrame implements ActionListener
         }
         else if("Run".equals(e.getActionCommand()))
         {
+            Button.buttonRemote(e.getActionCommand());
             upButton.setVisible(true);
             downButton.setVisible(true);
             leftButton.setVisible(true);
@@ -188,6 +189,7 @@ public class CreateGui extends JFrame implements ActionListener
         }
         else if("Attack".equals(e.getActionCommand()))
         {
+            Button.buttonRemote(e.getActionCommand());
             upButton.setVisible(true);
             downButton.setVisible(true);
             leftButton.setVisible(true);

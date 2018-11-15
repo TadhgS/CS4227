@@ -12,5 +12,6 @@ package Controller;
 public class PlayerDisplayInfo {
     public static String movementAction;
     public static String movementResult;
+    public static String soundMade;
     
 }

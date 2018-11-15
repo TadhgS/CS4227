@@ -9,6 +9,9 @@ package Data;
  *
  * @author Tadhg
  */
-public class ConcreteClient {
+public interface AdapterInterface 
+{
+    public void request(String a);
+     
     
 }
