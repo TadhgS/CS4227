@@ -24,7 +24,7 @@ public class MetalWall extends Texture
     }
 
     @Override
-    public double damage() 
+    public int damage() 
     {
         return 0;
     }    

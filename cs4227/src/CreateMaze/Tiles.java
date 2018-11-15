@@ -24,7 +24,7 @@ public class Tiles extends Tile{
     }
     
     @Override
-    public double damage() 
+    public int damage() 
     {
         return 0;
     }

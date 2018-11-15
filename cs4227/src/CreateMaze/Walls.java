@@ -24,7 +24,7 @@ public class Walls extends Wall{
     }
     
     @Override
-    public double damage() 
+    public int damage() 
     {
         return 0;
     }

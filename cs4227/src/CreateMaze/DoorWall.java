@@ -20,13 +20,13 @@ public class DoorWall extends Door{
     @Override
     public Boolean destructable() 
     {
-        return false;
+        return true;
     }
 
     @Override
-    public double damage() 
+    public int damage() 
     {
-        return 0.0;
+        return 0;
     }
     
 }

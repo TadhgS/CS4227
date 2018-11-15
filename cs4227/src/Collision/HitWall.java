@@ -1,56 +1,79 @@
 package Collision;
 
+import Avatar.Avatar;
 import Avatar.AvatarInterface;
+import Controller.PlayerDisplayInfo;
+import CreateMaze.Assembler;
 import CreateMaze.CreateRoom;
+import static Gui.CreateGui.gameText;
 
 
 public class HitWall 
 {
-    Avatar.Avatar avatar;
-    public HitWall(Avatar.Avatar a){
+    Avatar avatar;
+    int roomSize;
+    int moveBy;
+    public HitWall(Avatar a,int roomSize){
         avatar = a;
-    }
-    private int health;
-    
-    public Avatar.Avatar wallHitHealth(String wallTypeHit)
-    {         
-        health = avatar.getHP();
-        if( wallTypeHit == "Door")
-        {
-            return avatar;
-        }
-        else if ( wallTypeHit == "Spiked")
-        {
-            health = health-5;
-            avatar.setCurrentHP(health);
-            return avatar;
-        }
-        else if ( wallTypeHit == "Metal")
-        {
-        health = health;
-            avatar.setCurrentHP(health);
-            return avatar;
-        }
-        else if ( wallTypeHit == "Destructable")
-        {
-            health = health-2;
-            avatar.setCurrentHP(health);
-            return avatar;
-        }
-        return avatar;
+        this.roomSize = roomSize;
     }
     
-    public Boolean wallHitDoor(String wallTypeHit)
+    public Boolean checkIfWall()
     {
-        if( wallTypeHit == "Door")
+        if(avatar.getPosition()-roomSize < 0  && PlayerDisplayInfo.movementAction == "Moving Up")
         {
             return true;
         }
-        else if ( wallTypeHit == "Destructable")
+        
+        else if(avatar.getPosition()+roomSize >= roomSize*roomSize  && PlayerDisplayInfo.movementAction == "Moving Down")
+        {
+            return true;
+        }
+        
+        else if(avatar.getPosition()%roomSize == 0  && PlayerDisplayInfo.movementAction == "Moving Left")
+        {
+            return true;
+        }
+        
+        else if((avatar.getPosition()+1)%roomSize == 0  && PlayerDisplayInfo.movementAction == "Moving Right")
         {
             return true;
         }
         else
             return false;
+    }
+    
+    public Avatar wallHitHealth(CreateMaze.Assembler wall)
+    {         
+        avatar.setCurrentHP(avatar.getHP() + wall.getParts().get(1).damage());
+        return avatar;
+    }
+    
+    public Boolean wallHitDoor(CreateMaze.Assembler wall)
+    {
+        return wall.getParts().get(1).destructable();
+    }
+
+    public int getWall() {
+        
+        if(PlayerDisplayInfo.movementAction == "Moving Up")
+        {
+            return avatar.getPosition();
+        }
+        
+        else if(PlayerDisplayInfo.movementAction == "Moving Down")
+        {
+            return (((avatar.getPosition()- (avatar.getPosition()% roomSize))/roomSize)+avatar.getPosition()% roomSize)+1;
+        }
+        
+        else if(PlayerDisplayInfo.movementAction == "Moving Left")
+        {
+            return (roomSize*2)+ avatar.getPosition()/roomSize;
+        }
+        
+        else
+        {
+            return ((roomSize*2)+ (avatar.getPosition()-roomSize)/roomSize)+roomSize;
+        }
     }
 }

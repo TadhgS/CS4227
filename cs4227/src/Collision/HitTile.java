@@ -5,6 +5,8 @@
  */
 package Collision;
 
+import Controller.PlayerDisplayInfo;
+
 /**
  *
  * @author Tadhg
@@ -12,8 +14,10 @@ package Collision;
 public class HitTile {
     
     Avatar.Avatar avatar;
-    public HitTile(Avatar.Avatar a){
+    int roomSize;
+    public HitTile(Avatar.Avatar a, int roomSize){
         avatar = a;
+        this.roomSize = roomSize;
     }
     private int health;
     private int coin;
@@ -45,5 +49,26 @@ public class HitTile {
         }
         return avatar;
     }
-    
+        public int getMove()
+    {
+        if(PlayerDisplayInfo.movementAction == "Moving Up")
+        {
+            return roomSize *-1;
+        }
+        
+        else if(PlayerDisplayInfo.movementAction == "Moving Down")
+        {
+            return roomSize;
+        }
+        
+        else if(PlayerDisplayInfo.movementAction == "Moving Left")
+        {
+            return -1;
+        }
+        
+        else
+        {
+            return 1;
+        }
+    }
 }

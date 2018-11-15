@@ -24,8 +24,8 @@ public class DestructableWall extends Destructable
     }
 
     @Override
-    public double damage() {
-        return 0.0;
+    public int damage() {
+        return 0;
     }
     
 }

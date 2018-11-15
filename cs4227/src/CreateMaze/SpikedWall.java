@@ -24,7 +24,7 @@ public class SpikedWall extends Spiked{
     }
     
     @Override
-    public double damage() 
+    public int damage() 
     {
         return 2;
     }

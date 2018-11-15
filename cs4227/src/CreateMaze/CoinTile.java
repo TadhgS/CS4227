@@ -25,9 +25,9 @@ public class CoinTile extends Coin
     }
 
     @Override
-    public double damage() 
+    public int damage() 
     {
-        return 0.0;
+        return 0;
     }
     
 }

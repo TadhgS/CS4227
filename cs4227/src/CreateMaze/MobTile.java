@@ -25,7 +25,7 @@ public class MobTile extends Mob
     }
 
     @Override
-    public double damage() 
+    public int damage() 
     {
         return 2;
     }

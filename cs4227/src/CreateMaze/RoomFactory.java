@@ -15,14 +15,13 @@ public class RoomFactory extends AbstractFactory{
     public Room getRoom(String roomsize) {
         if(null != roomsize)
         switch (roomsize) {
-            case "small":
+            case "Small":
                 return new SmallRoom();
-        //return new MediumRoom();
-            case "medium":
-                break;
+            case "Medium":
+                return new MediumRoom();
         //return new LargeRoom();
-            case "large":
-                break;
+            case "Large":
+                return new LargeRoom();
             default:
                 break;
         }
