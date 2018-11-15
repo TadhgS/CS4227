@@ -7,10 +7,10 @@ package CreateMaze;
 
 /**
  *
- * @author Sean
+ * @author William
  */
-public abstract class Tile implements Part 
+public abstract class Destructable implements Part
 {
-    
+    @Override
+    public abstract double damage();
 }
-

@@ -8,12 +8,12 @@ import Avatar.Avatar;
  */
 public class ProxyCoin implements CoinInterface
 {
-    private NewCoin newCoin = new NewCoin();
+    private RealCoin proxyCoin = new RealCoin();
     @Override
     public void updateScore(Avatar a)
     {
         int score = 10;
-        newCoin.updateScore(a);
+        proxyCoin.updateScore(a);
     }
     
 }

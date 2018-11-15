@@ -7,14 +7,14 @@ package CreateMaze;
 
 /**
  *
- * @author 14138409
+ * @author Sean
  */
-public class SolidWall extends Wall
+public class CobbleTile extends Texture
 {
     @Override
     public String name() 
     {
-        return "Solid Wall";
+        return "Cobble";
     }
 
     @Override
@@ -26,7 +26,7 @@ public class SolidWall extends Wall
     @Override
     public double damage() 
     {
-        return 0.0;
-    }    
-
+        return 0;
+    }
+    
 }

@@ -21,25 +21,25 @@ public class HitTile {
     {         
         health = avatar.getHP();
         coin = avatar.getScore();
-        if( tileTypeHit == "Mob Tile")
+        if( tileTypeHit == "Mob")
         {
             health = health-2;
             avatar.setCurrentHP(health);
             return avatar;
         }
-        else if ( tileTypeHit == "Coin Tile")
+        else if ( tileTypeHit == "Coin")
         {
             coin = coin+1;
             avatar.setScore(coin);
             return avatar;
         }
-        else if ( tileTypeHit == "Heal Tile")
+        else if ( tileTypeHit == "Heal")
         {
             health = health+2;
             avatar.setCurrentHP(health);
             return avatar;
         }
-        else if ( tileTypeHit == "Plain Tile")
+        else if ( tileTypeHit == "Plain")
         {
             return avatar;
         }

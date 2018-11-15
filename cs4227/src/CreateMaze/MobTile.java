@@ -9,13 +9,13 @@ package CreateMaze;
  *
  * @author Sean
  */
-public class MobTile extends Tile
+public class MobTile extends Mob
 {
 
     @Override
     public String name() 
     {
-        return "Mob Tile";
+        return "Mob";
     }
 
     @Override
@@ -27,7 +27,7 @@ public class MobTile extends Tile
     @Override
     public double damage() 
     {
-        return 0.5;
+        return 2;
     }
     
 }

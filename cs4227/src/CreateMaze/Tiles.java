@@ -7,27 +7,27 @@ package CreateMaze;
 
 /**
  *
- * @author Sean
+ * @author William
  */
-public class CoinTile extends Coin
-{
+public class Tiles extends Tile{
 
     @Override
-    public String name() 
+    public String name()
     {
-        return "Coin";
+        return "Tile";
     }
 
     @Override
-    public Boolean destructable() 
+    public Boolean destructable()
     {
         return false;
     }
-
+    
     @Override
     public double damage() 
     {
-        return 0.0;
+        return 0;
     }
+
     
 }
