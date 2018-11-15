@@ -1,6 +1,7 @@
 package Gui;
 
 import Avatar.Avatar;
+import Avatar.CheckPoint;
 import Avatar.SaveState;
 import javax.swing.*;
 import java.awt.event.*;
@@ -19,21 +20,22 @@ import java.util.ArrayList;
 public class CreateGui extends JFrame implements ActionListener 
 {
     Avatar a = new Avatar();
+    CheckPoint checkPoint = new CheckPoint();
     
-    public static JButton upButton, downButton, leftButton, rightButton, attackButton, runButton, startButton, reStartButton;
+    public static JButton upButton, downButton, leftButton, rightButton, attackButton, runButton, startButton, reStartButton, tryButton;
     public static JTextField userText, scoreText, healthText, floorText;
     public static JTextArea gameScreenText, gameText;
-    public int characterPosition = 1;
     public int previousPosition = 1;
     ArrayList w,t;
     String[] player;
     
+    CreateMaze.AbstractFactory roomFactory = CreateMaze.FactoryProducer.getFactory("room");
+    
     
     public CreateGui()
     {
-        SaveState careTaker = new SaveState(); 
-        a.setState();
-        careTaker.addAvatar(a.saveState());
+        checkPoint.addAvatar(a.saveState());
+        
             
             
         setTitle("The Maze");
@@ -115,13 +117,13 @@ public class CreateGui extends JFrame implements ActionListener
         rightButton.setVisible(false);
         
         attackButton = new JButton("Attack");
-        attackButton.setBounds(520, 300, 80, 25);
+        attackButton.setBounds(520, 255, 80, 25);
         attackButton.addActionListener(this);
         add(attackButton);
         attackButton.setVisible(false);
         
         runButton = new JButton("Run");
-        runButton.setBounds(680, 300, 80, 25);
+        runButton.setBounds(680, 255, 80, 25);
         runButton.addActionListener(this);
         add(runButton);
         runButton.setVisible(false);
@@ -136,6 +138,12 @@ public class CreateGui extends JFrame implements ActionListener
         reStartButton.addActionListener(this);
         add(reStartButton);
         reStartButton.setVisible(false);
+        
+        tryButton = new JButton("Again?");
+        tryButton.setBounds(680, 300, 80, 25);
+        tryButton.addActionListener(this);
+        add(tryButton);
+        tryButton.setVisible(false);
         
         JButton logoutButton = new JButton("Logout");
         logoutButton.setBounds(600, 325, 80, 25);
@@ -163,7 +171,7 @@ public class CreateGui extends JFrame implements ActionListener
         }
         else if("Restart".equals(e.getActionCommand()))
         {
-            restartGame();
+            restartGame(false);
         }
         else if("Run".equals(e.getActionCommand()))
         {
@@ -174,7 +182,7 @@ public class CreateGui extends JFrame implements ActionListener
             runButton.setVisible(false);
             attackButton.setVisible(false);
             
-            characterPosition = previousPosition;
+            a.setPosition(previousPosition);
             gameText.setText(gameText.getText() + "You ran... like a coward\n");
             printBoard();
         }
@@ -193,8 +201,12 @@ public class CreateGui extends JFrame implements ActionListener
             scoreText.setText("Coins: " + a.getScore());
             
             gameText.setText(gameText.getText() + "Oh......You didnt die....yet\n");
-            ((CreateMaze.Assembler)t.get(characterPosition)).getParts().set(0, new CreateMaze.PlainTile());
+            ((CreateMaze.Assembler)t.get(a.getPosition())).getParts().set(0, new CreateMaze.PlainTile());
             printBoard();
+        }
+        else if("Again?".equals(e.getActionCommand()))
+        {
+            restartGame(true);
         }
         else
         {
@@ -216,80 +228,77 @@ public class CreateGui extends JFrame implements ActionListener
         startButton.setVisible(false);
         reStartButton.setVisible(true);
         healthText.setText("Health: " + a.getHP());
+        scoreText.setText("Coins: " + a.getScore());
+        floorText.setText("Floor: " + a.getFloor());
         
-        CreateMaze.AbstractFactory roomFactory;
-        roomFactory = CreateMaze.FactoryProducer.getFactory("room");
+        
         CreateMaze.Room room = roomFactory.getRoom("small");
         t = room.createTiles();
         w = room.createWalls();
-        CreateMaze.Assembler x = null;
 
         player = new String[t.size()];
         printBoard();
-        
-        
-        
-        //Wall and Tile tests
-       /* for(int i = 0; i< w.size(); i ++ )
-        {
-            x = (CreateMaze.Assembler)w.get(i);
-            if(x.getParts().size() > 1)
-                gameText.setText(gameText.getText() + x.getParts().get(0).name() + x.getParts().get(1).name() +  "\n");
-            else
-                gameText.setText(gameText.getText() + x.getParts().get(0).name() + "\n");
-            
-        }
-        
-        for(int i = 0; i< t.size(); i ++ )
-        {
-            x = (CreateMaze.Assembler)t.get(i);
-            gameText.setText(gameText.getText() + x.getParts().get(0).name() + "\n");
-        }*/
     } 
 
     private void updateGameInfo() {
         
-        previousPosition = characterPosition;
+        previousPosition = a.getPosition();
         gameText.setText(gameText.getText()  + PlayerDisplayInfo.movementAction +  "\n");
         CreateMaze.Assembler x,y = null;
         
         Collision.HitWall hitWall = new Collision.HitWall(a);
         Collision.HitTile hitTile = new Collision.HitTile(a);
-        x = (CreateMaze.Assembler)w.get(characterPosition);
+        x = (CreateMaze.Assembler)w.get(a.getPosition());
         
         
-        if((characterPosition == 0 || characterPosition == 1)  && PlayerDisplayInfo.movementAction == "Moving Up")
+        if((a.getPosition() == 0 || a.getPosition() == 1)  && PlayerDisplayInfo.movementAction == "Moving Up")
         {
             a = hitWall.wallHitHealth(x.getParts().get(0).name());
             hitWall.wallHitDoor(x.getParts().get(0).name());
-            gameText.setText(gameText.getText() + "You walked into a " + x.getParts().get(0).name() + "\n");
+            if(x.getParts().size() > 1)
+                gameText.setText(gameText.getText() + "You walked into a " + x.getParts().get(1).name() + "\n");
+            else
+                gameText.setText(gameText.getText() + "You walked into a " + x.getParts().get(0).name() + "\n");
+            doorCheck(x);
         }
         
-        else if((characterPosition == 2 || characterPosition == 3)  && PlayerDisplayInfo.movementAction == "Moving Down")
+        else if((a.getPosition() == 2 || a.getPosition() == 3)  && PlayerDisplayInfo.movementAction == "Moving Down")
         {
             a = hitWall.wallHitHealth(x.getParts().get(0).name());
             hitWall.wallHitDoor(x.getParts().get(0).name());
-            gameText.setText(gameText.getText() + "You walked into a " + x.getParts().get(0).name() + "\n");
+            if(x.getParts().size() > 1)
+                gameText.setText(gameText.getText() + "You walked into a " + x.getParts().get(1).name() + "\n");
+            else
+                gameText.setText(gameText.getText() + "You walked into a " + x.getParts().get(0).name() + "\n");
+            doorCheck(x);
         }
         
-        else if((characterPosition == 0 || characterPosition == 2)  && PlayerDisplayInfo.movementAction == "Moving Left")
+        else if((a.getPosition() == 0 || a.getPosition() == 2)  && PlayerDisplayInfo.movementAction == "Moving Left")
         {
             a = hitWall.wallHitHealth(x.getParts().get(0).name());
             hitWall.wallHitDoor(x.getParts().get(0).name());
-            gameText.setText(gameText.getText() + "You walked into a " + x.getParts().get(0).name() + "\n");
+            if(x.getParts().size() > 1)
+                gameText.setText(gameText.getText() + "You walked into a " + x.getParts().get(1).name() + "\n");
+            else
+                gameText.setText(gameText.getText() + "You walked into a " + x.getParts().get(0).name() + "\n");
+            doorCheck(x);
         }
         
-        else if((characterPosition == 1 || characterPosition == 3)  && PlayerDisplayInfo.movementAction == "Moving Right")
+        else if((a.getPosition() == 1 || a.getPosition() == 3)  && PlayerDisplayInfo.movementAction == "Moving Right")
         {
             
             a = hitWall.wallHitHealth(x.getParts().get(0).name());
             hitWall.wallHitDoor(x.getParts().get(0).name());
-            gameText.setText(gameText.getText() + "You walked into a " + x.getParts().get(0).name() + "\n");
+            if(x.getParts().size() > 1)
+                gameText.setText(gameText.getText() + "You walked into a " + x.getParts().get(1).name() + "\n");
+            else
+                gameText.setText(gameText.getText() + "You walked into a " + x.getParts().get(0).name() + "\n");
+            doorCheck(x);
         }
         else
         {
-            characterPosition  = characterPosition + Integer.parseInt( PlayerDisplayInfo.movementResult);
-            y = (CreateMaze.Assembler)t.get(characterPosition);
+            a.setPosition(a.getPosition() + Integer.parseInt( PlayerDisplayInfo.movementResult));
+            y = (CreateMaze.Assembler)t.get(a.getPosition());
             a = hitTile.tileHitHealth(y.getParts().get(0).name());
             gameText.setText(gameText.getText() + "You walk on a  " + y.getParts().get(0).name() + "\n");
             
@@ -304,7 +313,7 @@ public class CreateGui extends JFrame implements ActionListener
             }
             else if(y.getParts().get(0).name() == "Heal Tile" || y.getParts().get(0).name() == "Coin Tile")
             {
-                ((CreateMaze.Assembler)t.get(characterPosition)).getParts().set(0, new CreateMaze.PlainTile());
+                ((CreateMaze.Assembler)t.get(a.getPosition())).getParts().set(0, new CreateMaze.PlainTile());
             }
             
         }
@@ -317,11 +326,13 @@ public class CreateGui extends JFrame implements ActionListener
             rightButton.setVisible(false);
             runButton.setVisible(false);
             attackButton.setVisible(false);
+            tryButton.setVisible(true);
             gameText.setText(gameText.getText() + login.userName  + " died....... good going." +  "\n");
             
         }
         healthText.setText("Health: " + a.getHP());
         scoreText.setText("Coins: " + a.getScore());
+        floorText.setText("Floor: " + a.getFloor());
     }
     
     private void printBoard()
@@ -329,14 +340,14 @@ public class CreateGui extends JFrame implements ActionListener
         for(int i =0; i< player.length;i++)
             player[i] = "-";
         
-        player[characterPosition] = "p";
-        gameScreenText.setText("x x x x\n" +
-            "x " +player[0]+ "  " + player[1] +  " x\n" +
-            "x " +player[2]+ "  " + player[3] +  " x\n" +
-            "x x x x\n");
+        player[a.getPosition()] = "p";
+        gameScreenText.setText(" x x x x\n" +
+            " x " +player[0]+ "  " + player[1] +  " x\n" +
+            " x " +player[2]+ "  " + player[3] +  " x\n" +
+            " x x x x\n");
     }
 
-    private void restartGame() {
+    private void restartGame(Boolean redo) {
         upButton.setVisible(true);
         downButton.setVisible(true);
         leftButton.setVisible(true);
@@ -345,11 +356,21 @@ public class CreateGui extends JFrame implements ActionListener
         attackButton.setVisible(false);
         startButton.setVisible(false);
         reStartButton.setVisible(true);
+        tryButton.setVisible(false);
+        if(redo)
+        {
+            a.getState(checkPoint.getLastAvatar());
+        }
+        else
+        {
         a = new Avatar();
+        gameText.setText("You restarted the Game \n");
+        a.setPosition(1);
+        }
+        
         healthText.setText("Health: " + a.getHP());
         scoreText.setText("Coins: " + a.getScore());
-        gameText.setText("You restarted the Game \n");
-        characterPosition = 1;
+        floorText.setText("Floor: " + a.getFloor());
         
         CreateMaze.AbstractFactory roomFactory;
         roomFactory = CreateMaze.FactoryProducer.getFactory("room");
@@ -360,5 +381,18 @@ public class CreateGui extends JFrame implements ActionListener
 
         player = new String[t.size()];
         printBoard();
+    }
+    
+    private void doorCheck(CreateMaze.Assembler x)
+    {
+         if(x.getParts().size() > 1 || x.getParts().get(0).name() == "Destructable Wall")
+        {
+            CreateMaze.Room room = roomFactory.getRoom("small");
+            t = room.createTiles();
+            w = room.createWalls();
+            a.setFloor(a.getFloor()+1);
+            gameText.setText(gameText.getText() + "You have moved up a floor.\n");
+            checkPoint.addAvatar(a.saveState());
+        }
     }
 }

@@ -13,7 +13,7 @@ public class Avatar implements AvatarInterface
 {
     
      public static int maxHp, currentHp;
-     public int atk, score, floor;
+     public int atk, score, floor, position;
      
     public Avatar()
     {
@@ -21,6 +21,8 @@ public class Avatar implements AvatarInterface
         currentHp = maxHp;
         this.atk = 2;
         this.score = 0;
+        this.floor = 1;
+        this.position = 1;
     }
     
     public int getScore()
@@ -56,22 +58,22 @@ public class Avatar implements AvatarInterface
     {
         this.atk = currentAtk;
     }
-
-    public int setState()
-    {
-        return this.currentHp;
-    }
     
 
      public Memento saveState()
      {
-      return new Memento(currentHp,score,atk);
+      return new Memento(currentHp,score,atk,floor,position);
    }
 
 
    public void getState(Memento memento)
    {
       currentHp = memento.getHp();
+      score = memento.getScore();
+      atk = memento.getAtk();
+      floor = memento.getFloor();
+      position = memento.getPosition();
+      
    }
    
     public void setFloor(int floor) 
@@ -82,5 +84,15 @@ public class Avatar implements AvatarInterface
     public int getFloor() 
     {
         return floor;
+    }
+    
+    public int getPosition()
+    {
+        return position;
+    }
+    
+    public void setPosition(int position)
+    {
+        this.position = position;
     }
 }

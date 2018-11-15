@@ -10,10 +10,7 @@ package CreateMaze;
  * @author William
  */
 
-import Avatar.Avatar;
-import Avatar.SaveState;
 import java.util.ArrayList;
-import Avatar.CareTaker;
 
 public class CreateRoom
 {
@@ -62,16 +59,6 @@ public class CreateRoom
                 }
             }
             //For extensiblity tiles can copy walls to create new types of tiles (mob tiles, pitfalls, etc.)
-            
-            
-            
-            //creating instance of checkpoint.
-            /*Avatar avatar = new Avatar();
-            SaveState careTaker = new SaveState(); 
-            
-            
-            avatar.setState();
-            careTaker.addAvatar(avatar.saveState());*/
 
             return walls;
         }
