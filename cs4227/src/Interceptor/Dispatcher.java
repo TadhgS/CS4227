@@ -5,16 +5,24 @@
  */
 package Interceptor;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Dsims
  */
 public class Dispatcher
 {
-    public Dispatcher(Interceptor i)
+    ArrayList registeredInterceptors = new ArrayList();
+    public Dispatcher(){}
+    
+    public void register(Interceptor i)
     {
-        i = new ConcreteInterceptor();
-        return;
+        registeredInterceptors.add(i);
     }
-
+    
+    public void dispatch()
+    {
+        ((Interceptor)registeredInterceptors.get(0)).runIntercept();
+    }
 }
