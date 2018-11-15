@@ -14,6 +14,7 @@ public class RoomPartBuilder
     public Assembler createSpikedWall()
     {
         Assembler part = new Assembler();
+        part.addPart(new Walls());
         part.addPart(new SpikedWall());
         return part;
     }
@@ -21,14 +22,15 @@ public class RoomPartBuilder
     public Assembler createDoorWall()
     {
         Assembler part = new Assembler();
-        part.addPart(new SolidWall());
-        part.addPart(new UnlockedDoor());
+        part.addPart(new Walls());
+        part.addPart(new DoorWall());
         return part;
     }
     
     public Assembler createDestructableWall()
     {
         Assembler part = new Assembler();
+        part.addPart(new Walls());
         part.addPart(new DestructableWall());
         return part;
     }
@@ -36,7 +38,8 @@ public class RoomPartBuilder
     public Assembler createSolidWall()
     {
         Assembler part = new Assembler();
-        part.addPart(new SolidWall());
+        part.addPart(new Walls());
+        part.addPart(new MetalWall());
         return part;
         
     }
@@ -44,13 +47,15 @@ public class RoomPartBuilder
     public Assembler createPlainTile()
     {
         Assembler part = new Assembler();
-        part.addPart(new PlainTile());
+        part.addPart(new Tiles());
+        part.addPart(new CobbleTile());
         return part;
     }
     
     public Assembler createMobTile()
     {
         Assembler part = new Assembler();
+        part.addPart(new Tiles());
         part.addPart(new MobTile());
         return part;
     }
@@ -58,6 +63,7 @@ public class RoomPartBuilder
     public Assembler createHealTile()
     {
         Assembler part = new Assembler();
+        part.addPart(new Tiles());
         part.addPart(new HealTile());
         return part;
     }
@@ -65,6 +71,7 @@ public class RoomPartBuilder
     public Assembler createCoinTile()
     {
         Assembler part = new Assembler();
+        part.addPart(new Tiles());
         part.addPart(new CoinTile());
         return part;
         

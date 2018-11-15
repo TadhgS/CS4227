@@ -9,12 +9,12 @@ package CreateMaze;
  *
  * @author 14138409
  */
-public class UnlockedDoor  extends Door{
-
+public class MetalWall extends Texture
+{
     @Override
     public String name() 
     {
-        return "Unlocked Door";
+        return "Metal";
     }
 
     @Override
@@ -26,7 +26,7 @@ public class UnlockedDoor  extends Door{
     @Override
     public double damage() 
     {
-        return 0.0;
-    }
-    
+        return 0;
+    }    
+
 }

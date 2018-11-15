@@ -9,12 +9,12 @@ package CreateMaze;
  *
  * @author 14138409
  */
-public class DestructableWall extends Wall
+public class DestructableWall extends Destructable
 {
     @Override
     public String name() 
     {
-        return "Destructable Wall";
+        return "Destructable";
     }
 
     @Override
@@ -25,7 +25,7 @@ public class DestructableWall extends Wall
 
     @Override
     public double damage() {
-        return 0.1;
+        return 0.0;
     }
     
 }

@@ -15,23 +15,23 @@ public class HitWall
     public Avatar.Avatar wallHitHealth(String wallTypeHit)
     {         
         health = avatar.getHP();
-        if( wallTypeHit == "Unlocked Door")
+        if( wallTypeHit == "Door")
         {
             return avatar;
         }
-        else if ( wallTypeHit == "Spiked Wall")
+        else if ( wallTypeHit == "Spiked")
         {
             health = health-5;
             avatar.setCurrentHP(health);
             return avatar;
         }
-        else if ( wallTypeHit == "Solid Wall")
+        else if ( wallTypeHit == "Metal")
         {
         health = health;
             avatar.setCurrentHP(health);
             return avatar;
         }
-        else if ( wallTypeHit == "Destructable Wall")
+        else if ( wallTypeHit == "Destructable")
         {
             health = health-2;
             avatar.setCurrentHP(health);
@@ -42,11 +42,11 @@ public class HitWall
     
     public Boolean wallHitDoor(String wallTypeHit)
     {
-        if( wallTypeHit == "Unlocked Door")
+        if( wallTypeHit == "Door")
         {
             return true;
         }
-        else if ( wallTypeHit == "Destructable Wall")
+        else if ( wallTypeHit == "Destructable")
         {
             return true;
         }

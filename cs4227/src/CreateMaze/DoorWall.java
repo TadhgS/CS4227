@@ -7,15 +7,14 @@ package CreateMaze;
 
 /**
  *
- * @author Sean
+ * @author 14138409
  */
-public class CoinTile extends Coin
-{
+public class DoorWall extends Door{
 
     @Override
     public String name() 
     {
-        return "Coin";
+        return "Door";
     }
 
     @Override
