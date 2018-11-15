@@ -20,6 +20,7 @@ public class HitTile {
     public Avatar.Avatar tileHitHealth(String tileTypeHit)
     {         
         health = avatar.getHP();
+        coin = avatar.getScore();
         if( tileTypeHit == "Mob Tile")
         {
             health = health-2;
@@ -28,20 +29,18 @@ public class HitTile {
         }
         else if ( tileTypeHit == "Coin Tile")
         {
-            health = health-5;
-            avatar.setCurrentHP(health);
+            coin = coin+1;
+            avatar.setScore(coin);
             return avatar;
         }
         else if ( tileTypeHit == "Heal Tile")
         {
-            health = health-1;
+            health = health+2;
             avatar.setCurrentHP(health);
             return avatar;
         }
         else if ( tileTypeHit == "Plain Tile")
         {
-            health = health-2;
-            avatar.setCurrentHP(health);
             return avatar;
         }
         return avatar;
