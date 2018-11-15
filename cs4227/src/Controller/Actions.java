@@ -5,6 +5,10 @@
  */
 package Controller;
 
+import Data.Sounds;
+import Data.Adapter;
+import Data.AdapterInterface;
+
 /**
  *
  * @author danie
@@ -12,6 +16,8 @@ package Controller;
 public class Actions 
 {
     String name;
+    String action;
+    AdapterInterface target = new Adapter(new Sounds());
     public Actions(String name)
     {
         this.name = name;
@@ -24,11 +30,15 @@ public class Actions
     
     public void Attack()
     {
+        action = "attack";
+        target.request(action);
         System.out.println("You Attack");
 
     }
     public void Run()
     {
+        action = "run";
+        target.request(action);
         System.out.println("You Run Away");
 
     }   
