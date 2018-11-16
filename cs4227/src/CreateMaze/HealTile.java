@@ -27,7 +27,7 @@ public class HealTile extends Heal
     @Override
     public int damage() 
     {
-        return -2;
+        return 2;
     }
     
 }

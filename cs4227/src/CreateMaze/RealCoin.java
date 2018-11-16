@@ -11,6 +11,6 @@ public class RealCoin implements CoinInterface
    public void updateScore(Avatar a)
    {
        int score = 10;
-       a.setScore(score);
+       a.setPoints(score);
    }  
 }

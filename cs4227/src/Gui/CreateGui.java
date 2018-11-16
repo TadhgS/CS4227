@@ -12,6 +12,7 @@ import Interceptor.ContextObject;
 import Interceptor.Dispatcher;
 import java.awt.Dimension;
 import java.util.ArrayList;
+import CreateMaze.ProxyCoin;
 
 /**
  *
@@ -257,6 +258,7 @@ public class CreateGui extends JFrame implements ActionListener
 
     private void updateGameInfo() {
         
+        ProxyCoin proxyCoin = new ProxyCoin();
         previousPosition = a.getPosition();
         gameText.setText(gameText.getText()  + PlayerDisplayInfo.movementAction +  "\n");
         CreateMaze.Assembler x,y = null;
@@ -304,7 +306,12 @@ public class CreateGui extends JFrame implements ActionListener
             runButton.setVisible(false);
             attackButton.setVisible(false);
             tryButton.setVisible(true);
-            gameText.setText(gameText.getText() + login.userName  + " died....... good going." +  "\n");
+            int totalScore = (a.getScore());
+            for(int r = 0; r < totalScore; r++)
+            {
+                proxyCoin.updateScore(a);
+            } 
+            gameText.setText(gameText.getText() + login.userName + " has died....... good going." +  "\n" + login.userName + "'s score is: " + a.getPoints() + "\n");
         }
         updateGuiStats();
     }
