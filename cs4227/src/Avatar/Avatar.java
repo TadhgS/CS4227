@@ -13,7 +13,7 @@ public class Avatar implements AvatarInterface
 {
     
      public static int maxHp, currentHp;
-     public int atk, score, floor, position;
+     public int atk, score, floor, position, points;
      
     public Avatar()
     {
@@ -23,6 +23,17 @@ public class Avatar implements AvatarInterface
         this.score = 0;
         this.floor = 1;
         this.position = 1;
+        this.points = 0;
+    }
+    
+    public int getPoints()
+    {
+        return points;
+    }
+    
+    public void setPoints(int point)
+    {
+        this.points += point;
     }
     
     public int getScore()
