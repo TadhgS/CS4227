@@ -9,12 +9,13 @@ package CreateMaze;
  *
  * @author Sean
  */
-public class HealTile extends Tile{
+public class HealTile extends Heal
+{
 
     @Override
     public String name() 
     {
-        return "Heal Tile";
+        return "Heal";
     }
 
     @Override
@@ -24,9 +25,9 @@ public class HealTile extends Tile{
     }
 
     @Override
-    public double damage() 
+    public int damage() 
     {
-        return -1.0;
+        return -2;
     }
     
 }

@@ -7,26 +7,27 @@ package CreateMaze;
 
 /**
  *
- * @author 14138409
+ * @author William
  */
-public class SolidWall extends Wall
-{
+public class Tiles extends Tile{
+
     @Override
-    public String name() 
+    public String name()
     {
-        return "Solid Wall";
+        return "Tile";
     }
 
     @Override
-    public Boolean destructable() 
+    public Boolean destructable()
     {
         return false;
     }
-
+    
     @Override
-    public double damage() 
+    public int damage() 
     {
-        return 0.0;
-    }    
+        return 0;
+    }
 
+    
 }

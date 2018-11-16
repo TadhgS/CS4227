@@ -5,7 +5,7 @@ import Avatar.Avatar;
  * @author Tadhg
  */
 
-public class NewCoin implements CoinInterface
+public class RealCoin implements CoinInterface
 {
    @Override
    public void updateScore(Avatar a)

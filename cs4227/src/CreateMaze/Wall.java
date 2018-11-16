@@ -12,5 +12,5 @@ package CreateMaze;
 public abstract class Wall implements Part
 {
     @Override
-    public abstract double damage();
+    public abstract int damage();
 }

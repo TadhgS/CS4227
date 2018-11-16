@@ -25,21 +25,19 @@ public class Actions
     
     public void Start()
     {
-        System.out.println("Starting Game...");
+        PlayerDisplayInfo.movementAction = "Starting Game ...";
     }
     
     public void Attack()
     {
         action = "attack";
         target.request(action);
-        System.out.println("You Attack");
-
+        PlayerDisplayInfo.movementAction = "You Attack the Enemy\n" + "Oh......You didnt die....yet\n"; 
     }
     public void Run()
     {
         action = "run";
         target.request(action);
-        System.out.println("You Run Away");
-
+        PlayerDisplayInfo.movementAction = "You ran... like a coward\n";
     }   
 }

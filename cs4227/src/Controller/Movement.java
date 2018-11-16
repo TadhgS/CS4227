@@ -20,25 +20,20 @@ class Movement
     public void moveUp()
     {
         PlayerDisplayInfo.movementAction = "Moving Up";
-        PlayerDisplayInfo.movementResult = "-2";
     }
     
     public void moveDown()
     {
         PlayerDisplayInfo.movementAction = "Moving Down";
-        PlayerDisplayInfo.movementResult = "+2";
 
     }
     public void moveLeft()
     {
         PlayerDisplayInfo.movementAction = "Moving Left";
-        PlayerDisplayInfo.movementResult = "-1";
 
     }
     public void moveRight()
     {
         PlayerDisplayInfo.movementAction = "Moving Right";
-        PlayerDisplayInfo.movementResult = "+1";
-
     }
 }

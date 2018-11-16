@@ -15,7 +15,7 @@ public class Main
     public static void main(String[] args) 
     {
         Interceptor.ConcreteInterceptor i = new ConcreteInterceptor();
-        Interceptor.Dispatcher d = new Dispatcher(i);
+        //Interceptor.Dispatcher d = new Dispatcher(i);
         login();
     }
     

@@ -9,23 +9,24 @@ package CreateMaze;
  *
  * @author 14138409
  */
-public class DestructableWall extends Destructable
+public class MetalWall extends Texture
 {
     @Override
     public String name() 
     {
-        return "Destructable";
+        return "Metal";
     }
 
     @Override
     public Boolean destructable() 
     {
-        return true;
+        return false;
     }
 
     @Override
-    public int damage() {
+    public int damage() 
+    {
         return 0;
-    }
-    
+    }    
+
 }

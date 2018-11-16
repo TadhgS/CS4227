@@ -9,13 +9,13 @@ package CreateMaze;
  *
  * @author Sean
  */
-public class CoinTile  extends Tile
+public class CoinTile extends Coin
 {
 
     @Override
     public String name() 
     {
-        return "Coin Tile";
+        return "Coin";
     }
 
     @Override
@@ -25,9 +25,9 @@ public class CoinTile  extends Tile
     }
 
     @Override
-    public double damage() 
+    public int damage() 
     {
-        return 0.0;
+        return 0;
     }
     
 }

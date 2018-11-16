@@ -9,12 +9,12 @@ package CreateMaze;
  *
  * @author 14138409
  */
-public class SpikedWall extends Wall{
+public class SpikedWall extends Spiked{
 
     @Override
     public String name()
     {
-        return "Spiked Wall";
+        return "Spiked";
     }
 
     @Override
@@ -24,9 +24,9 @@ public class SpikedWall extends Wall{
     }
     
     @Override
-    public double damage() 
+    public int damage() 
     {
-        return 7.5;
+        return 2;
     }
 
     

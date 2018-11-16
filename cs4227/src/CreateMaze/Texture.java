@@ -7,9 +7,9 @@ package CreateMaze;
 
 /**
  *
- * @author Tadhg
+ * @author William
  */
-public class ObserverInterface 
+public abstract class Texture implements Part
 {
     
 }

@@ -9,12 +9,12 @@ package CreateMaze;
  *
  * @author Sean
  */
-public class PlainTile extends Tile
+public class CobbleTile extends Texture
 {
     @Override
     public String name() 
     {
-        return "Plain Tile";
+        return "Cobble";
     }
 
     @Override
@@ -24,9 +24,9 @@ public class PlainTile extends Tile
     }
 
     @Override
-    public double damage() 
+    public int damage() 
     {
-        return 0.0;
+        return 0;
     }
     
 }

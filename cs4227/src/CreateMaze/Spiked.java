@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Data;
+package CreateMaze;
 
 /**
  *
- * @author Tadhg
+ * @author William
  */
-public class ClientInterface {
-    
+public abstract class Spiked implements Part
+{
+    @Override
+    public abstract int damage();
 }

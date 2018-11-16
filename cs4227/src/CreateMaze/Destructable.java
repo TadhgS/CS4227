@@ -7,9 +7,10 @@ package CreateMaze;
 
 /**
  *
- * @author Tadhg
+ * @author William
  */
-public class Observer 
+public abstract class Destructable implements Part
 {
-    
+    @Override
+    public abstract int damage();
 }

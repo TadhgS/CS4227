@@ -7,9 +7,9 @@ package CreateMaze;
 
 /**
  *
- * @author Tadhg
+ * @author User
  */
-public class Enemy 
+public abstract class Mob implements Part
 {
     
 }

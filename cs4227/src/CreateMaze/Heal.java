@@ -7,9 +7,9 @@ package CreateMaze;
 
 /**
  *
- * @author Tadhg
+ * @author William
  */
-public class Singleton 
+public abstract class Heal implements Part
 {
     
 }

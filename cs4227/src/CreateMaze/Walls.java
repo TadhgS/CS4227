@@ -7,26 +7,27 @@ package CreateMaze;
 
 /**
  *
- * @author 14138409
+ * @author William
  */
-public class UnlockedDoor  extends Door{
+public class Walls extends Wall{
 
     @Override
-    public String name() 
+    public String name()
     {
-        return "Unlocked Door";
+        return "Wall";
     }
 
     @Override
-    public Boolean destructable() 
+    public Boolean destructable()
     {
         return false;
     }
-
+    
     @Override
-    public double damage() 
+    public int damage() 
     {
-        return 0.0;
+        return 0;
     }
+
     
 }
