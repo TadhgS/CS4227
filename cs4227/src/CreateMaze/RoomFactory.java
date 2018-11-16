@@ -9,12 +9,15 @@ package CreateMaze;
  *
  * @author David Sims
  */
-public class RoomFactory extends AbstractFactory{
+public class RoomFactory extends AbstractFactory
+{
 
     @Override
-    public Room getRoom(String roomsize) {
+    public Room getRoom(String roomsize) 
+    {
         if(null != roomsize)
-        switch (roomsize) {
+        switch (roomsize) 
+        {
             case "small":
                 return new SmallRoom();
         //return new MediumRoom();

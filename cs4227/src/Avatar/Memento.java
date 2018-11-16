@@ -1,6 +1,5 @@
 
 package Avatar;
-import CreateMaze.Room;
 
 class Memento 
 {

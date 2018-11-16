@@ -9,8 +9,8 @@ package Controller;
  *
  * @author danie
  */
-public class ActionAttackCommand implements Command {
-
+public class ActionAttackCommand implements Command 
+{
     Actions actions;
     public ActionAttackCommand(Actions actions)
     {

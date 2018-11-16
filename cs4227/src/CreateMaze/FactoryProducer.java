@@ -9,7 +9,8 @@ package CreateMaze;
  *
  * @author David Sims
  */
-public class FactoryProducer {
+public class FactoryProducer 
+{
     public static AbstractFactory getFactory(String choice)
     {
         if(choice == "room")

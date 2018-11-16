@@ -9,6 +9,7 @@ package CreateMaze;
  *
  * @author David Sims
  */
-public abstract class AbstractFactory {
+public abstract class AbstractFactory 
+{
     public abstract Room getRoom(String roomsize);
 }
