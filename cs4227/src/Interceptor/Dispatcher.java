@@ -25,4 +25,9 @@ public class Dispatcher
     {
         ((Interceptor)registeredInterceptors.get(0)).runIntercept();
     }
+    
+    public void dispatch(String x)
+    {
+        ((Interceptor)registeredInterceptors.get(0)).runInterceptForScore();
+    }
 }

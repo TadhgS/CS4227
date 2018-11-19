@@ -7,6 +7,7 @@ package Interceptor;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import Avatar.Avatar;
 
 /**
  *
@@ -18,6 +19,7 @@ public class ContextObject
     DateTimeFormatter dtf;
     LocalDateTime now;
     String inOut ;
+    int score;
     
     public ContextObject(String n)
     {
@@ -31,6 +33,11 @@ public class ContextObject
         dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         now = LocalDateTime.now();
         inOut = " logged out at ";
+    }
+    public ContextObject(Avatar a)
+    {
+        score = a.getPoints();
+        now =LocalDateTime.now();
     }
     
 }

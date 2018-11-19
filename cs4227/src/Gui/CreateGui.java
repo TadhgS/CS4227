@@ -312,6 +312,11 @@ public class CreateGui extends JFrame implements ActionListener
                 proxyCoin.updateScore(a);
             } 
             gameText.setText(gameText.getText() + login.userName + " has died....... good going." +  "\n" + login.userName + "'s score is: " + a.getPoints() + "\n");
+            ContextObject cO = new ContextObject(a);
+            Dispatcher dispatcher = new Dispatcher();
+            ConcreteInterceptor IC = new ConcreteInterceptor(cO);
+            dispatcher.register(IC);
+            dispatcher.dispatch("test");
         }
         updateGuiStats();
     }

@@ -16,6 +16,7 @@ import java.io.*;
 public class ConcreteInterceptor implements Interceptor 
 {
     String name, inOut, date;
+    int score;
     public ConcreteInterceptor()
     {
         
@@ -27,8 +28,10 @@ public class ConcreteInterceptor implements Interceptor
         name = login.userName;
         date = CO.now.toString();
         
+        score = CO.score;
         
-    }
+     }
+    
     
     public void runIntercept()
     {
@@ -37,6 +40,21 @@ public class ConcreteInterceptor implements Interceptor
             String fileName = "./src/Data/logDetails.txt";
             FileWriter fw = new FileWriter(fileName,true); //the true will append the new data
             fw.write(name + inOut + date + "\n");//appends the string to the file
+            fw.close();
+        }
+        catch(IOException ioe)
+        {
+            System.err.println("IOException: " + ioe.getMessage());
+        }
+    }
+    
+    public void runInterceptForScore()
+    {
+        try
+        {
+            String fileName = "./src/Data/leaderBoard.txt";
+            FileWriter fw = new FileWriter(fileName, true);
+            fw.write(name + " scored: " + score +" on " + date + "\n");
             fw.close();
         }
         catch(IOException ioe)
