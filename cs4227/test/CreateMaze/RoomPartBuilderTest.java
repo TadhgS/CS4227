@@ -5,10 +5,6 @@
  */
 package CreateMaze;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -28,13 +24,21 @@ public class RoomPartBuilderTest {
     public void testCreateSpikedWall() {
         System.out.println("createSpikedWall");
         RoomPartBuilder instance = new RoomPartBuilder();
-        String expName = "Spiked Wall";
+        String expName = "Wall";
         Boolean expDestructable = false;
-        Double expDamage = 7.5;
+        int expDamage = 0;
         Assembler result = instance.createSpikedWall();
         assertEquals(expName, result.getParts().get(0).name());
         assertEquals(expDestructable, result.getParts().get(0).destructable());
-        assertEquals(expDamage, (Double)result.getParts().get(0).damage());
+        assertEquals(expDamage, (int)result.getParts().get(0).damage());
+        
+        
+        expName = "Spiked";
+        expDestructable = false;
+        expDamage = -4;
+        assertEquals(expName, result.getParts().get(1).name());
+        assertEquals(expDestructable, result.getParts().get(1).destructable());
+        assertEquals(expDamage, (int)result.getParts().get(1).damage());
     }
 
     /**
@@ -44,20 +48,20 @@ public class RoomPartBuilderTest {
     public void testCreateDoorWall() {
         System.out.println("createDoorWall");
         RoomPartBuilder instance = new RoomPartBuilder();
-        String expName = "Solid Wall";
+        String expName = "Wall";
         Boolean expDestructable = false;
-        Double expDamage = 0.0;
+        int expDamage = 0;
         Assembler result = instance.createDoorWall();
         assertEquals(expName, result.getParts().get(0).name());
         assertEquals(expDestructable, result.getParts().get(0).destructable());
-        assertEquals(expDamage, (Double)result.getParts().get(0).damage());
+        assertEquals(expDamage, (int)result.getParts().get(0).damage());
         
-        expName = "Unlocked Door";
-        expDestructable = false;
-        expDamage = 0.0;
+        expName = "Door";
+        expDestructable = true;
+        expDamage = 0;
         assertEquals(expName, result.getParts().get(1).name());
         assertEquals(expDestructable, result.getParts().get(1).destructable());
-        assertEquals(expDamage, (Double)result.getParts().get(1).damage());
+        assertEquals(expDamage, (int)result.getParts().get(1).damage());
         
         
     }
@@ -69,13 +73,20 @@ public class RoomPartBuilderTest {
     public void testCreateDestructableWall() {
         System.out.println("createDestructableWall");
         RoomPartBuilder instance = new RoomPartBuilder();
-        String expName = "Destructable Wall";
-        Boolean expDestructable = true;
-        Double expDamage = 0.1;
+        String expName = "Wall";
+        Boolean expDestructable = false;
+        int expDamage = 0;
         Assembler result = instance.createDestructableWall();
         assertEquals(expName, result.getParts().get(0).name());
         assertEquals(expDestructable, result.getParts().get(0).destructable());
-        assertEquals(expDamage, (Double)result.getParts().get(0).damage());
+        assertEquals(expDamage, (int)result.getParts().get(0).damage());
+        
+        expName = "Destructable";
+        expDestructable = true;
+        expDamage = -2;
+        assertEquals(expName, result.getParts().get(1).name());
+        assertEquals(expDestructable, result.getParts().get(1).destructable());
+        assertEquals(expDamage, (int)result.getParts().get(1).damage());
     }
 
     /**
@@ -85,13 +96,20 @@ public class RoomPartBuilderTest {
     public void testCreateSolidWall() {
         System.out.println("createSolidWall");
         RoomPartBuilder instance = new RoomPartBuilder();
-        String expName = "Solid Wall";
+        String expName = "Wall";
         Boolean expDestructable = false;
-        Double expDamage = 0.0;
+        int expDamage = 0;
         Assembler result = instance.createSolidWall();
         assertEquals(expName, result.getParts().get(0).name());
         assertEquals(expDestructable, result.getParts().get(0).destructable());
-        assertEquals(expDamage, (Double)result.getParts().get(0).damage());
+        assertEquals(expDamage, (int)result.getParts().get(0).damage());
+        
+        expName = "Metal";
+        expDestructable = false;
+        expDamage = 0;
+        assertEquals(expName, result.getParts().get(1).name());
+        assertEquals(expDestructable, result.getParts().get(1).destructable());
+        assertEquals(expDamage, (int)result.getParts().get(1).damage());
     }
 
     /**
@@ -101,13 +119,20 @@ public class RoomPartBuilderTest {
     public void testCreatePlainTile() {
         System.out.println("createPlainTile");
         RoomPartBuilder instance = new RoomPartBuilder();
-        String expName = "Plain Tile";
+        String expName = "Tile";
         Boolean expDestructable = false;
-        Double expDamage = 0.0;
+        int expDamage = 0;
         Assembler result = instance.createPlainTile();
         assertEquals(expName, result.getParts().get(0).name());
         assertEquals(expDestructable, result.getParts().get(0).destructable());
-        assertEquals(expDamage, (Double)result.getParts().get(0).damage());
+        assertEquals(expDamage, (int)result.getParts().get(0).damage());
+        
+        expName = "Cobble";
+        expDestructable = false;
+        expDamage = 0;
+        assertEquals(expName, result.getParts().get(1).name());
+        assertEquals(expDestructable, result.getParts().get(1).destructable());
+        assertEquals(expDamage, (int)result.getParts().get(1).damage());
     }
 
     /**
@@ -117,13 +142,20 @@ public class RoomPartBuilderTest {
     public void testCreateMobTile() {
         System.out.println("createMobTile");
         RoomPartBuilder instance = new RoomPartBuilder();
-        String expName = "Mob Tile";
+        String expName = "Tile";
         Boolean expDestructable = false;
-        Double expDamage = 0.5;
+        int expDamage = 0;
         Assembler result = instance.createMobTile();
         assertEquals(expName, result.getParts().get(0).name());
         assertEquals(expDestructable, result.getParts().get(0).destructable());
-        assertEquals(expDamage, (Double)result.getParts().get(0).damage());
+        assertEquals(expDamage, (int)result.getParts().get(0).damage());
+        
+        expName = "Mob";
+        expDestructable = false;
+        expDamage = -2;
+        assertEquals(expName, result.getParts().get(1).name());
+        assertEquals(expDestructable, result.getParts().get(1).destructable());
+        assertEquals(expDamage, (int)result.getParts().get(1).damage());
     }
 
     /**
@@ -133,13 +165,21 @@ public class RoomPartBuilderTest {
     public void testCreateHealTile() {
         System.out.println("createHealTile");
         RoomPartBuilder instance = new RoomPartBuilder();
-        String expName = "Heal Tile";
+        String expName = "Tile";
         Boolean expDestructable = false;
-        Double expDamage = -1.0;
+        int expDamage = 0;
+        
         Assembler result = instance.createHealTile();
         assertEquals(expName, result.getParts().get(0).name());
         assertEquals(expDestructable, result.getParts().get(0).destructable());
-        assertEquals(expDamage, (Double)result.getParts().get(0).damage());
+        assertEquals(expDamage, (int)result.getParts().get(0).damage());
+        
+        expName = "Heal";
+        expDestructable = false;
+        expDamage = 2;
+        assertEquals(expName, result.getParts().get(1).name());
+        assertEquals(expDestructable, result.getParts().get(1).destructable());
+        assertEquals(expDamage, (int)result.getParts().get(1).damage());
     }
 
     /**
@@ -149,12 +189,19 @@ public class RoomPartBuilderTest {
     public void testCreateCoinTile() {
         System.out.println("createCoinTile");
         RoomPartBuilder instance = new RoomPartBuilder();
-        String expName = "Coin Tile";
+        String expName = "Tile";
         Boolean expDestructable = false;
-        Double expDamage = 0.0;
+        int expDamage = 0;
         Assembler result = instance.createCoinTile();
         assertEquals(expName, result.getParts().get(0).name());
         assertEquals(expDestructable, result.getParts().get(0).destructable());
-        assertEquals(expDamage, (Double)result.getParts().get(0).damage());
+        assertEquals(expDamage, (int)result.getParts().get(0).damage());
+        
+        expName = "Coin";
+        expDestructable = false;
+        expDamage = 0;
+        assertEquals(expName, result.getParts().get(1).name());
+        assertEquals(expDestructable, result.getParts().get(1).destructable());
+        assertEquals(expDamage, (int)result.getParts().get(1).damage());
     }
 }
