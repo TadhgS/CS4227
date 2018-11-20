@@ -401,7 +401,7 @@ public class CreateGui extends JFrame implements ActionListener
             checkPoint.addAvatar(a.saveState());
         }
     }
-    
+    //updating UI stats
     private void updateGuiStats()
     {
         healthText.setText("Health: " + a.getHP());
