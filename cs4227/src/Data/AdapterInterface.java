@@ -11,7 +11,6 @@ package Data;
  */
 public interface AdapterInterface 
 {
-    public void request(String a);
-     
-    
+    //Action is sent to Adapter.request
+    public void request(String a); 
 }

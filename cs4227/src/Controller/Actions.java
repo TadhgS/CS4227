@@ -31,12 +31,14 @@ public class Actions
     public void Attack()
     {
         action = "attack";
+        //Sends action to AdapterInterface
         target.request(action);
         PlayerDisplayInfo.movementAction = "You Attack the Enemy\n" + "Oh......You didnt die....yet\n"; 
     }
     public void Run()
     {
         action = "run";
+        //Sends action to AdapterInterface
         target.request(action);
         PlayerDisplayInfo.movementAction = "You ran... like a coward\n";
     }   

@@ -37,6 +37,7 @@ public class ConcreteInterceptor implements Interceptor
     {
         try
         {
+            //Writes when user has logged in and out with date and time
             String fileName = "./src/Data/logDetails.txt";
             FileWriter fw = new FileWriter(fileName,true); //the true will append the new data
             fw.write(name + inOut + date + "\n");//appends the string to the file
@@ -48,30 +49,15 @@ public class ConcreteInterceptor implements Interceptor
         }
     }
     
+    @Override
     public void runInterceptForScore()
     {
         try
         {
+            //Writes users score once they have died in the game
             String fileName = "./src/Data/leaderBoard.txt";
             FileWriter fw = new FileWriter(fileName, true);
             fw.write(name + " scored: " + score +" on " + date + "\n");
-            fw.close();
-        }
-        catch(IOException ioe)
-        {
-            System.err.println("IOException: " + ioe.getMessage());
-        }
-    }
-    
-    public ConcreteInterceptor(Avatar a)
-    {
-        int score = a.getScore();
-        name = login.userName;
-        try
-        {
-            String fileName = "./src/Data/leaderBoard.txt";
-            FileWriter fw = new FileWriter(fileName,true); //the true will append the new data
-            fw.write(name + " " + score + "\n");//appends the string to the file
             fw.close();
         }
         catch(IOException ioe)
