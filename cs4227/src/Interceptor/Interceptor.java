@@ -12,4 +12,5 @@ package Interceptor;
 public interface Interceptor 
 {
     public void runIntercept();
+    public void runInterceptForScore();
 }

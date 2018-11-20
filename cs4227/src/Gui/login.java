@@ -51,10 +51,12 @@ public class login extends JFrame implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e) 
     {
+        //Checks what buuton was clicked
         switch (e.getActionCommand())
         {
             case "Login":
             userName = userText.getText();
+            //Takes userName and sends to Authentication.authenticate()
             security = Authentication.authenticate(userName);
             if(security == false)
             {
@@ -62,17 +64,20 @@ public class login extends JFrame implements ActionListener
             }
             else
             {
+                //Creates instances for the interceptor
                 ContextObject cO = new ContextObject(userName);
                 Dispatcher dispatcher = new Dispatcher();
                 Interceptor IC = new ConcreteInterceptor(cO);
                 dispatcher.register(IC);
                 dispatcher.dispatch();
+                //Hides login window and calls to create game window
                 setVisible(false);
                 Maze.Main.showMazeGui();
             }
             break;
             
             case "Update User":
+                //Hides login window and calls below to create update user window
                 setVisible(false);
                 Avatar.UpdateUser u = new Avatar.UpdateUser();
                 u.setVisible(true);

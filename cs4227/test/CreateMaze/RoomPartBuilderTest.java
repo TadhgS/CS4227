@@ -1,27 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package CreateMaze;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Dsims
- */
-public class RoomPartBuilderTest {
-    
-    public RoomPartBuilderTest() {
+public class RoomPartBuilderTest 
+{    
+    public RoomPartBuilderTest() 
+    {
     }
     
     /**
      * Test of createSpikedWall method, of class RoomPartBuilder.
      */
     @Test
-    public void testCreateSpikedWall() {
+    public void testCreateSpikedWall() 
+    {
         System.out.println("createSpikedWall");
         RoomPartBuilder instance = new RoomPartBuilder();
         String expName = "Wall";
@@ -45,7 +38,8 @@ public class RoomPartBuilderTest {
      * Test of createDoorWall method, of class RoomPartBuilder.
      */
     @Test
-    public void testCreateDoorWall() {
+    public void testCreateDoorWall() 
+    {
         System.out.println("createDoorWall");
         RoomPartBuilder instance = new RoomPartBuilder();
         String expName = "Wall";
@@ -70,7 +64,8 @@ public class RoomPartBuilderTest {
      * Test of createDestructableWall method, of class RoomPartBuilder.
      */
     @Test
-    public void testCreateDestructableWall() {
+    public void testCreateDestructableWall() 
+    {
         System.out.println("createDestructableWall");
         RoomPartBuilder instance = new RoomPartBuilder();
         String expName = "Wall";
@@ -93,7 +88,8 @@ public class RoomPartBuilderTest {
      * Test of createSolidWall method, of class RoomPartBuilder.
      */
     @Test
-    public void testCreateSolidWall() {
+    public void testCreateSolidWall() 
+    {
         System.out.println("createSolidWall");
         RoomPartBuilder instance = new RoomPartBuilder();
         String expName = "Wall";
@@ -116,7 +112,8 @@ public class RoomPartBuilderTest {
      * Test of createPlainTile method, of class RoomPartBuilder.
      */
     @Test
-    public void testCreatePlainTile() {
+    public void testCreatePlainTile() 
+    {
         System.out.println("createPlainTile");
         RoomPartBuilder instance = new RoomPartBuilder();
         String expName = "Tile";
@@ -139,7 +136,8 @@ public class RoomPartBuilderTest {
      * Test of createMobTile method, of class RoomPartBuilder.
      */
     @Test
-    public void testCreateMobTile() {
+    public void testCreateMobTile() 
+    {
         System.out.println("createMobTile");
         RoomPartBuilder instance = new RoomPartBuilder();
         String expName = "Tile";
@@ -162,7 +160,8 @@ public class RoomPartBuilderTest {
      * Test of createHealTile method, of class RoomPartBuilder.
      */
     @Test
-    public void testCreateHealTile() {
+    public void testCreateHealTile() 
+    {
         System.out.println("createHealTile");
         RoomPartBuilder instance = new RoomPartBuilder();
         String expName = "Tile";
@@ -186,7 +185,8 @@ public class RoomPartBuilderTest {
      * Test of createCoinTile method, of class RoomPartBuilder.
      */
     @Test
-    public void testCreateCoinTile() {
+    public void testCreateCoinTile() 
+    {
         System.out.println("createCoinTile");
         RoomPartBuilder instance = new RoomPartBuilder();
         String expName = "Tile";

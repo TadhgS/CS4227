@@ -11,7 +11,7 @@ package Avatar;
  */
 public class Avatar implements AvatarInterface
 {
-    
+    //creating the player avatar
      public static int maxHp, currentHp;
      public int atk, score, floor, position, points;
      
@@ -70,22 +70,22 @@ public class Avatar implements AvatarInterface
         this.atk = currentAtk;
     }
     
-
-     public Memento saveState()
-     {
+    //creating a save when entering a room
+    public Memento saveState()
+    {
       return new Memento(currentHp,score,atk,floor,position);
-   }
+    }
 
-
-   public void getState(Memento memento)
-   {
+    //reloading a save after death
+    public void getState(Memento memento)
+    {
       currentHp = memento.getHp();
       score = memento.getScore();
       atk = memento.getAtk();
       floor = memento.getFloor();
       position = memento.getPosition();
       
-   }
+    }
    
     public void setFloor(int floor) 
     {

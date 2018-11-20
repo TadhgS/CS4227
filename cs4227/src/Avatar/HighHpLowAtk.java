@@ -9,6 +9,7 @@ package Avatar;
  *
  * @author Sean
  */
+//decorator character, not implemented
 public class HighHpLowAtk extends AvatarDecorator{
      public  HighHpLowAtk(Avatar avatar) {
         super(avatar);

@@ -14,6 +14,7 @@ import java.util.List;
  */
 public class Assembler 
 {
+    //creates a list of parts for use in the builder
     private List<Part> parts = new ArrayList<Part>();
         
     public void addPart(Part part)

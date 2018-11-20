@@ -19,8 +19,10 @@ import CreateMaze.ProxyCoin;
  * @author Daniel
  */
 public class CreateGui extends JFrame implements ActionListener 
-{
+{   
+    //creates a new avatar
     Avatar a = new Avatar();
+    //creates a memento of avatar
     CheckPoint checkPoint = new CheckPoint();
     
     public static JButton upButton, downButton, leftButton, rightButton, attackButton, runButton, startButton, reStartButton, tryButton;
@@ -33,9 +35,10 @@ public class CreateGui extends JFrame implements ActionListener
     String roomSize;
     int moveBy;
     
+    //creates room
     CreateMaze.AbstractFactory roomFactory = CreateMaze.FactoryProducer.getFactory("room");
     
-    
+    //creates the UI
     public CreateGui()
     {
         checkPoint.addAvatar(a.saveState());
@@ -157,7 +160,7 @@ public class CreateGui extends JFrame implements ActionListener
         add(sizeSelection);
         
     }
-    
+    //implementation of buttons
     @Override
     public void actionPerformed(ActionEvent e)
     {
@@ -223,7 +226,7 @@ public class CreateGui extends JFrame implements ActionListener
         }
     }
     
-    
+    //on startgame click
     public void startGame()
     {
         upButton.setVisible(true);
@@ -243,13 +246,13 @@ public class CreateGui extends JFrame implements ActionListener
         t = room.createTiles();
         w = room.createWalls();
         
+        gameText.setText(gameText.getText() + "You start your adventure....good luck\n");
         
         CreateMaze.Assembler x,y = null;
         
         for(int i = 0; i< w.size();i++)
         {
         x = (CreateMaze.Assembler)w.get(i);
-        gameText.setText(gameText.getText() + "You walked into a " + x.getParts().get(1).name() +""+ x.getParts().get(0).name() + "\n");
         }
 
         player = new String[t.size()];
@@ -312,6 +315,11 @@ public class CreateGui extends JFrame implements ActionListener
                 proxyCoin.updateScore(a);
             } 
             gameText.setText(gameText.getText() + login.userName + " has died....... good going." +  "\n" + login.userName + "'s score is: " + a.getPoints() + "\n");
+            ContextObject cO = new ContextObject(a);
+            Dispatcher dispatcher = new Dispatcher();
+            ConcreteInterceptor IC = new ConcreteInterceptor(cO);
+            dispatcher.register(IC);
+            dispatcher.dispatch("test");
         }
         updateGuiStats();
     }
@@ -380,7 +388,7 @@ public class CreateGui extends JFrame implements ActionListener
         player = new String[t.size()];
         printBoard();
     }
-    
+    //check for moving up a floor
     private void doorCheck(CreateMaze.Assembler x)
     {
          if(x.getParts().get(1).name() == "Destructable"||x.getParts().get(1).name() == "Door")
@@ -393,7 +401,7 @@ public class CreateGui extends JFrame implements ActionListener
             checkPoint.addAvatar(a.saveState());
         }
     }
-    
+    //updating UI stats
     private void updateGuiStats()
     {
         healthText.setText("Health: " + a.getHP());

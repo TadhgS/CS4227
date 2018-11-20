@@ -29,6 +29,7 @@ public class Adapter implements AdapterInterface
     public void request(String action) 
     {
         try {
+            //Sends action to Sounds.playSound
             this.adaptee.playSound(action);
         } catch (IOException ex) {
             Logger.getLogger(Adapter.class.getName()).log(Level.SEVERE, null, ex);

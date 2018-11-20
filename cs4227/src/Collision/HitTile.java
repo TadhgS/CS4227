@@ -11,6 +11,7 @@ import Controller.PlayerDisplayInfo;
  *
  * @author Tadhg
  */
+//walking on a tile
 public class HitTile {
     
     Avatar.Avatar avatar;
