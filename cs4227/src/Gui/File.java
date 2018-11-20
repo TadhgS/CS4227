@@ -21,13 +21,12 @@ public class File
         try
         {
             String line;
-            
+            //Reads file specified above
             fileReader = new BufferedReader(new FileReader(fileToParse));
              
-            
+            //While file is not empty it will read each line into myList
             while ((line = fileReader.readLine()) != null)
             {
-                
                 String[] tokens = line.split(",");
                 myList.addAll(Arrays.asList(tokens));
             }
@@ -45,6 +44,7 @@ public class File
             {
             }
         }
+        //Once finished myList is returned to Authentication
         return myList;
     }
 }

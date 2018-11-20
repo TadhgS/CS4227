@@ -48,21 +48,30 @@ public class UpdateUser extends JFrame implements ActionListener
     @Override
     public void actionPerformed(ActionEvent ae)
     {
+        //Checks which button has been pressed
         switch (ae.getActionCommand())
         {
             case "New User":
+                //Sends userName to Gui.Authentication.authenticate
                 userName = userText.getText();
                 security = Gui.Authentication.authenticate(userName);
                 if(security == false)
                 {
                     try
                     {
+                        //opens ./src/Data/loginDetail.txt
                         String filename = "./src/Data/loginDetail.txt";
-                        FileWriter fw = new FileWriter(filename,true); //the true will append the new data
-                        fw.write(userName+"\n");//appends the string to the file
+                        
+                        //the true will append the new data
+                        FileWriter fw = new FileWriter(filename,true);
+                        
+                        //appends the string to the file
+                        fw.write(userName+"\n");
                         fw.close();
                         
                         JOptionPane.showMessageDialog(null, "Username has been added.", "Added", JOptionPane.INFORMATION_MESSAGE);
+                        
+                        //Hides update user window and goes back to login window
                         setVisible(false);
                         Gui.login l = new Gui.login();
                         l.setVisible(true);
@@ -79,15 +88,23 @@ public class UpdateUser extends JFrame implements ActionListener
             break;
             
             case "Delete User":
+                //Sends userName to Gui.Authentication.authenticate
                 userName = userText.getText();
                 security = Gui.Authentication.authenticate(userName);
                 if(security == true)
                 {
                     try
                     {
+                        //opens ./src/Data/loginDetail.txt
                         File inputFile = new File("./src/Data/loginDetail.txt");
+                        
+                        //Creates a temp file with same path as original file
                         File tempFile = new File(inputFile.getAbsolutePath() + ".tmp");
+                        
+                        //Reades ./src/Data/loginDetail.txt
                         BufferedReader br = new BufferedReader( new FileReader("./src/Data/loginDetail.txt"));
+                        
+                        //Prints to the tempFile
                         PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
                         String line = null;
                         
@@ -95,6 +112,7 @@ public class UpdateUser extends JFrame implements ActionListener
                         {
                             if(!line.trim().equals(userName))
                             {
+                                //While line doesn't equal username print to tempFile
                                 pw.println(line);
                                 pw.flush();
                             }
@@ -113,6 +131,8 @@ public class UpdateUser extends JFrame implements ActionListener
                         }
                         
                         JOptionPane.showMessageDialog(null, "Username has been deleted.", "Deleted", JOptionPane.INFORMATION_MESSAGE);
+                        
+                        //Sets update user window to invisible and shows login window
                         setVisible(false);
                         Gui.login l = new Gui.login();
                         l.setVisible(true);
