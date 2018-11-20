@@ -5,10 +5,6 @@ import static org.junit.Assert.*;
 
 public class RoomPartBuilderTest 
 {    
-    public RoomPartBuilderTest() 
-    {
-    }
-    
     /**
      * Test of createSpikedWall method, of class RoomPartBuilder.
      */
@@ -56,8 +52,6 @@ public class RoomPartBuilderTest
         assertEquals(expName, result.getParts().get(1).name());
         assertEquals(expDestructable, result.getParts().get(1).destructable());
         assertEquals(expDamage, (int)result.getParts().get(1).damage());
-        
-        
     }
 
     /**

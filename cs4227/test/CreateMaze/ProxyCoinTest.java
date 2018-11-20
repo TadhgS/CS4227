@@ -6,10 +6,6 @@ import static org.junit.Assert.*;
 
 public class ProxyCoinTest 
 {   
-    public ProxyCoinTest() 
-    {
-    }
-    
     /**
      * Test of updateScore method, of class ProxyCoin.
      */

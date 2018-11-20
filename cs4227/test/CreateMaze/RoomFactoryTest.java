@@ -62,5 +62,4 @@ public class RoomFactoryTest {
         assertEquals(16,t.size());
         assertEquals(16,w.size());
     }
-    
 }
