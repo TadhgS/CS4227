@@ -5,7 +5,7 @@ class Memento
 {
     private int Hp,score,atk,floor,position;
     
-
+    //saving the memento of avatar 
     public Memento(int hp,int score,int atk, int floor, int position)
 
     {

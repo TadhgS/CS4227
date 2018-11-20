@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
+//checkpoint created when entering a room
 public class CheckPoint
 {
     private List<Memento> avatarMementoList = new ArrayList<Memento>();

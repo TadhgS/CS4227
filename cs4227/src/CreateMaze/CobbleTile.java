@@ -11,6 +11,7 @@ package CreateMaze;
  */
 public class CobbleTile extends Texture
 {
+    //combines cobble and tile 
     @Override
     public String name() 
     {

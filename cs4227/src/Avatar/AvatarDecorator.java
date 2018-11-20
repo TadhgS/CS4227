@@ -12,7 +12,7 @@ package Avatar;
 public abstract class AvatarDecorator implements AvatarInterface{
 
     Avatar avatar;
-    
+    //implemented for extensiblity but not used
     public AvatarDecorator(Avatar avatar){
         this.avatar = avatar;
    }
