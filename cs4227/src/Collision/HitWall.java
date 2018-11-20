@@ -7,7 +7,7 @@ import CreateMaze.Assembler;
 import CreateMaze.CreateRoom;
 import static Gui.CreateGui.gameText;
 
-
+//walking into a wall
 public class HitWall 
 {
     Avatar avatar;

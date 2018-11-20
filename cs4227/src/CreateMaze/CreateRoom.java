@@ -22,6 +22,7 @@ public class CreateRoom
         RoomPartBuilder builder = new RoomPartBuilder();
         
         public ArrayList CreateWalls(int size){
+            //randomly assigns values that are used to populate the walls arraylist
             door = false;
             
             wallsArr = new int[size*4];
@@ -64,6 +65,7 @@ public class CreateRoom
         }
             
         public ArrayList CreateTiles(int size){
+            //randomly assigns values that are used to populate the tiles arraylist
             tilesArr = new int[size*size];
             for(int i = 0; i < size*size; i++){
                 tilesArr[i] = (int) ((Math.random() * 4)+1) ;

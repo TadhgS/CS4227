@@ -11,7 +11,7 @@ import javax.swing.*;
  */
 public class UpdateUser extends JFrame implements ActionListener
 {
-
+    //create/deleting/updating a user
     private static boolean security;
     private final JButton newUser;
     private final JButton deleteUser;

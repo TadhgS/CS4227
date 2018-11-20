@@ -11,6 +11,7 @@ package CreateMaze;
  */
 public class RoomPartBuilder 
 {
+    //uses the builder to create different types of walls and tiles
     public Assembler createSpikedWall()
     {
         Assembler part = new Assembler();
@@ -75,6 +76,5 @@ public class RoomPartBuilder
         part.addPart(new CoinTile());
         return part;
         
-    }
-            
+    }       
 }
